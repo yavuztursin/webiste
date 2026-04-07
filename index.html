@@ -198,6 +198,12 @@ nav.scrolled { background: rgba(8,8,8,.93); border-color: var(--b0); backdrop-fi
 .posts-empty { padding: 48px 0; border-top: 1px solid var(--b0); border-bottom: 1px solid var(--b0); display: flex; justify-content: space-between; align-items: baseline; }
 .posts-empty-l { font-family: var(--f-serif); font-size: 1.15rem; font-style: italic; color: var(--t2); }
 .posts-empty-r { font-family: var(--f-mono); font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: var(--t2); }
+.post-item { display: grid; grid-template-columns: 88px 1fr auto; align-items: baseline; gap: 36px; padding: 24px 0; border-top: 1px solid var(--b0); border-bottom: 1px solid var(--b0); color: var(--t0); transition: padding-left .2s; }
+.post-item:hover { padding-left: 6px; }
+.post-date { font-family: var(--f-mono); font-size: .58rem; letter-spacing: .1em; color: var(--t2); }
+.post-title { font-size: .92rem; color: rgba(238,235,230,.7); transition: color .2s; }
+.post-item:hover .post-title { color: var(--t0); }
+.post-tag { font-family: var(--f-mono); font-size: .56rem; letter-spacing: .12em; text-transform: uppercase; color: var(--t2); white-space: nowrap; }
 
 /* ── CONTACT ── */
 #contact { background: var(--bg); }
@@ -479,9 +485,12 @@ footer { border-top: 1px solid var(--b0); padding: 24px var(--gutter); display: 
       <span class="sec-num">06</span>
       <span class="sec-lbl">Writing</span>
     </div>
-    <div class="posts-empty reveal d1">
-      <span class="posts-empty-l">Nothing published yet.</span>
-      <span class="posts-empty-r">Follow on LinkedIn for updates</span>
+    <div class="reveal d1">
+      <a href="posts/first-month-chartering.html" class="post-item">
+        <span class="post-date">Apr 2026</span>
+        <span class="post-title">What I'm learning from working in chartering so far</span>
+        <span class="post-tag">Chartering</span>
+      </a>
     </div>
   </div>
 </section>
