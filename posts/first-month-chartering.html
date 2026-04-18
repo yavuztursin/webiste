@@ -3,42 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>First month in chartering — what stood out to me early on · Yavuz Tursin</title>
-  <meta name="description" content="A personal reflection from the first month as a Chartering Werkstudent at German Tanker Shipping.">
+  <title>Yavuz Tursin — Commercial Shipping, Chartering & Shipbroking · Bremen</title>
+  <meta name="description" content="Yavuz Tursin — commercial shipping, chartering, shipbroking, and freight markets. Based in Bremen, working at German Tanker Shipping and studying Shipping & Chartering at Hochschule Bremen.">
+  <meta name="author" content="Yavuz Tursin">
   <meta name="theme-color" content="#f3efe6">
+
+  <meta property="og:title" content="Yavuz Tursin — Commercial Shipping, Chartering & Shipbroking">
+  <meta property="og:description" content="Based in Bremen, working in chartering at German Tanker Shipping and studying Shipping & Chartering at Hochschule Bremen.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yavuz Tursin — Commercial Shipping, Chartering & Shipbroking">
+  <meta name="twitter:description" content="Based in Bremen, working in chartering at German Tanker Shipping and studying Shipping & Chartering at Hochschule Bremen.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yavuz Tursin",
+    "jobTitle": "Chartering Werkstudent",
+    "description": "Chartering Werkstudent at German Tanker Shipping, based in Bremen and studying Shipping & Chartering at Hochschule Bremen.",
+    "worksFor": { "@type": "Organization", "name": "German Tanker Shipping GmbH & Co. KG" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Hochschule Bremen" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Bremen", "addressCountry": "DE" },
+    "email": "contact@yavuztursin.com",
+    "sameAs": ["https://linkedin.com/in/yavuztursin"]
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    img { max-width: 100%; display: block; }
     body {
       background: #f3efe6;
       color: #171411;
       font-family: 'Inter', system-ui, sans-serif;
       font-size: 16px;
-      line-height: 1.72;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
-    a { color: inherit; text-decoration: none; }
     ::selection { background: #171411; color: #f3efe6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 2px solid #23425f; outline-offset: 3px; border-radius: 2px; }
 
     :root {
       --paper: #f3efe6;
+      --paper-strong: #ece6da;
       --paper-soft: #f7f3ec;
       --ink: #171411;
       --ink-soft: #514c46;
       --ink-muted: #847d72;
       --rule: #d6cebf;
+      --rule-strong: #c5bca9;
       --accent: #23425f;
+      --accent-soft: rgba(35,66,95,0.08);
       --serif: 'Newsreader', Georgia, serif;
       --sans: 'Inter', system-ui, sans-serif;
       --mono: 'IBM Plex Mono', ui-monospace, monospace;
-      --max: 760px;
-      --gutter: clamp(20px, 4vw, 44px);
+      --max: 1120px;
+      --gutter: clamp(20px, 4vw, 52px);
+      --radius: 20px;
       --shadow: 0 10px 24px rgba(23,20,17,0.05);
     }
 
@@ -47,174 +78,1119 @@
       margin-inline: auto;
     }
 
-    .topbar {
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      border-bottom: 1px solid var(--rule);
-      background: rgba(243,239,230,0.9);
+      z-index: 30;
+      border-bottom: 1px solid rgba(214,206,191,0.9);
+      background: rgba(243,239,230,0.90);
       backdrop-filter: blur(12px);
     }
-    .topbar-inner {
-      min-height: 68px;
+    .site-header-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
+      min-height: 70px;
     }
-    .brand, .back-link {
+    .site-name {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: flex-end;
+    }
+    .site-nav a {
       font-family: var(--mono);
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      color: var(--ink-soft);
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color .18s ease, border-color .18s ease;
     }
-    .brand { color: var(--ink); }
-    .back-link { color: var(--ink-soft); }
-    .back-link:hover { color: var(--ink); }
+    .site-nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
 
-    .article {
-      padding: clamp(56px, 9vw, 96px) 0 80px;
+    .hero {
+      padding: clamp(72px, 11vw, 156px) 0 clamp(72px, 10vw, 132px);
     }
-    .article-kicker {
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(56px, 9vw, 108px);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+      margin-bottom: clamp(28px, 4vw, 40px);
+    }
+    .hero-name em { font-style: italic; font-weight: 400; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(250px, 0.95fr);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: end;
+    }
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      max-width: 13ch;
+      margin-bottom: 18px;
+      text-wrap: balance;
+    }
+    .hero-summary {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      max-width: 58ch;
+    }
+    .hero-credentials {
+      padding: 18px 20px;
+      background: var(--paper-soft);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      line-height: 1.95;
+    }
+    .hero-credentials strong { color: var(--ink); font-weight: 500; }
+
+    section {
+      padding: clamp(64px, 8vw, 108px) 0 clamp(24px, 3vw, 36px);
+      border-top: 1px solid var(--rule);
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4.2vw, 48px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.032em;
+      max-width: 20ch;
+      margin-bottom: 20px;
+      text-wrap: balance;
+    }
+    .section-intro {
+      max-width: 66ch;
+      color: var(--ink-soft);
+      line-height: 1.72;
+      margin-bottom: clamp(28px, 4vw, 40px);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.85fr);
+      gap: clamp(24px, 4vw, 48px);
+      align-items: start;
+    }
+    .about-copy {
+      max-width: 62ch;
+    }
+    .about-p {
+      font-family: var(--serif);
+      font-size: clamp(19px, 1.5vw, 22px);
+      line-height: 1.62;
+      letter-spacing: -0.01em;
+      margin-bottom: 1em;
+    }
+    .about-p:last-child { margin-bottom: 0; }
+    .about-photo-wrap {
+      margin: 0;
+      background: var(--paper-soft);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 25%;
+      border-radius: 14px;
+      background: #ddd5c7;
+    }
+    .about-photo-caption {
+      margin-top: 10px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(18px, 3vw, 28px);
+      margin-top: 10px;
+    }
+    .writing-column {
+      min-width: 0;
+      background: var(--paper-soft);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: clamp(22px, 3vw, 30px);
+      box-shadow: var(--shadow);
+    }
+    .writing-kind {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+    }
+    .writing-column-title {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.6vw, 32px);
+      font-weight: 400;
+      line-height: 1.14;
+      letter-spacing: -0.026em;
+      margin-bottom: 10px;
+    }
+    .writing-column-intro {
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .writing-card {
+      display: block;
+      background: #fffdfa;
+      border: 1px solid var(--rule-strong);
+      border-radius: 14px;
+      padding: 20px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .writing-card + .writing-card { margin-top: 14px; }
+    a.writing-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(23,20,17,0.08);
+      border-color: #b9af99;
+    }
+    .writing-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .writing-status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      opacity: 0.55;
+    }
+    .writing-status.planned { color: var(--ink-muted); }
+    .writing-status.planned::before { background: var(--ink-muted); }
+    .writing-card-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.2vw, 30px);
+      font-weight: 400;
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      text-wrap: balance;
+    }
+    .writing-card-copy {
+      color: var(--ink-soft);
+      line-height: 1.68;
+      margin-bottom: 16px;
+    }
+    .writing-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .writing-empty {
+      margin-top: 14px;
+      padding: 16px 18px;
+      border: 1px dashed var(--rule-strong);
+      border-radius: 14px;
+      color: var(--ink-soft);
+      background: rgba(255,255,255,0.5);
+    }
+
+    .exp-list { display: grid; gap: 18px; }
+    .exp {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 24px;
+      padding: 22px 0;
+      border-top: 1px solid var(--rule);
+    }
+    .exp:last-child { border-bottom: 1px solid var(--rule); }
+    .exp-dateline {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      padding-top: 2px;
+    }
+    .exp-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.1vw, 28px);
+      font-weight: 400;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .exp-prose {
+      max-width: 62ch;
+      color: var(--ink-soft);
+      line-height: 1.72;
+    }
+
+    .focus-list, .direction-list {
+      list-style: none;
+      border-top: 1px solid var(--rule-strong);
+    }
+    .focus-list li {
+      display: grid;
+      grid-template-columns: 44px minmax(220px, 1fr) minmax(0, 2fr);
+      gap: 20px;
+      align-items: baseline;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .focus-num, .direction-num {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      color: var(--ink-muted);
+    }
+    .focus-name {
+      font-family: var(--serif);
+      font-size: clamp(18px, 1.6vw, 22px);
+      font-weight: 400;
+      line-height: 1.24;
+      letter-spacing: -0.015em;
+    }
+    .focus-note {
+      color: var(--ink-soft);
+      line-height: 1.62;
+    }
+
+    .direction-list li {
+      display: grid;
+      grid-template-columns: 44px minmax(240px, 1.35fr) minmax(0, 2fr);
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .direction-heading {
+      font-family: var(--serif);
+      font-size: clamp(19px, 1.7vw, 24px);
+      font-weight: 400;
+      line-height: 1.22;
+      letter-spacing: -0.015em;
+    }
+    .direction-copy {
+      color: var(--ink-soft);
+      line-height: 1.68;
+      max-width: 58ch;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(18px, 3vw, 24px);
+    }
+    .gallery-card {
+      margin: 0;
+      background: var(--paper-soft);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .gallery-image {
+      width: 100%;
+      height: auto;
+      max-height: 780px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 12px;
+      border: 1px solid var(--rule);
+      background: #dfd8c8;
+    }
+    .gallery-copy {
+      padding-top: 14px;
+    }
+    .gallery-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2vw, 28px);
+      font-weight: 400;
+      line-height: 1.18;
+      letter-spacing: -0.018em;
+      margin-bottom: 8px;
+    }
+    .gallery-note {
+      color: var(--ink-soft);
+      line-height: 1.68;
+    }
+
+    .contact-intro {
+      max-width: 58ch;
+      font-family: var(--serif);
+      font-size: clamp(19px, 1.5vw, 22px);
+      line-height: 1.58;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .button-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform .18s ease, background-color .18s ease, color .18s ease;
+    }
+    .button-link:hover { transform: translateY(-1px); }
+    .button-link.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--rule-strong);
+    }
+    .button-link.secondary:hover {
+      background: rgba(255,255,255,0.55);
+    }
+    .contact-links {
+      list-style: none;
+      max-width: 700px;
+      border-top: 1px solid var(--rule);
+    }
+    .contact-links li {
+      display: grid;
+      grid-template-columns: 140px minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: baseline;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .contact-links .k {
       font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 14px;
+      color: var(--ink-muted);
     }
-    .article-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
+    .contact-links .v { color: var(--ink); }
+    .contact-links a.v:hover { color: var(--accent); }
+    .contact-links .a {
       font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink-muted);
-      margin-bottom: 22px;
     }
-    .article-title {
-      font-family: var(--serif);
-      font-size: clamp(34px, 6vw, 56px);
-      font-weight: 400;
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-      margin-bottom: 18px;
-      text-wrap: balance;
+
+    .site-footer {
+      margin-top: clamp(64px, 8vw, 100px);
+      padding: 26px 0 36px;
+      border-top: 1px solid var(--rule);
     }
-    .article-intro {
-      font-family: var(--serif);
-      font-size: clamp(21px, 2vw, 26px);
-      line-height: 1.5;
-      letter-spacing: -0.012em;
-      color: var(--ink-soft);
-      max-width: 30ch;
-      margin-bottom: 32px;
-    }
-    .article-body {
-      background: var(--paper-soft);
-      border: 1px solid var(--rule);
-      border-radius: 16px;
-      padding: clamp(24px, 4vw, 34px);
-      box-shadow: var(--shadow);
-    }
-    .article-body p {
-      max-width: 62ch;
-      margin-bottom: 1em;
-      color: var(--ink-soft);
-    }
-    .article-body p:last-child { margin-bottom: 0; }
-    .article-body p.lead {
-      font-family: var(--serif);
-      font-size: clamp(21px, 2vw, 25px);
-      line-height: 1.55;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      margin-bottom: 1em;
-    }
-    .article-footer {
+    .site-footer-inner {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px 20px;
       align-items: center;
-      padding-top: 22px;
-      margin-top: 22px;
-      border-top: 1px solid var(--rule);
       font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink-muted);
     }
-    .article-footer a:hover { color: var(--ink); }
+    .site-footer-inner a:hover { color: var(--ink); }
 
-    @media (max-width: 720px) {
-      .topbar {
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-name { animation: rise .75s cubic-bezier(.2,.8,.2,1) .08s both; }
+    .hero-tagline { animation: rise .65s cubic-bezier(.2,.8,.2,1) .2s both; }
+    .hero-summary { animation: rise .65s cubic-bezier(.2,.8,.2,1) .28s both; }
+    .hero-credentials { animation: rise .65s cubic-bezier(.2,.8,.2,1) .38s both; }
+    .rv { opacity: 0; transform: translateY(12px); transition: opacity .55s ease, transform .55s cubic-bezier(.16,1,.3,1); }
+    .rv.on { opacity: 1; transform: translateY(0); }
+    .rv.d1 { transition-delay: .05s; }
+    .rv.d2 { transition-delay: .14s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .rv { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .about-grid,
+      .writing-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-tagline { max-width: 16ch; }
+      .about-photo-wrap { max-width: 420px; }
+    }
+
+    @media (max-width: 760px) {
+      .site-header {
         position: static;
         backdrop-filter: none;
         background: var(--paper);
       }
-      .topbar-inner {
+      .site-header-inner {
         min-height: unset;
         padding: 16px 0;
         align-items: flex-start;
       }
-      .article {
-        padding-top: 42px;
+      .site-nav {
+        display: none;
       }
-      .article-intro {
+      .hero {
+        padding-top: 56px;
+        padding-bottom: 72px;
+      }
+      section {
+        padding-top: 54px;
+        padding-bottom: 18px;
+      }
+      .section-title {
         max-width: none;
+        margin-bottom: 16px;
       }
-      .article-body {
+      .hero-tagline {
+        max-width: none;
+        font-size: clamp(30px, 8vw, 42px);
+      }
+      .hero-summary {
+        font-size: 15px;
+      }
+      .hero-credentials {
+        padding: 16px 18px;
+      }
+      .about-p,
+      .contact-intro {
+        font-size: 18px;
+      }
+      .writing-column,
+      .gallery-card {
         border-radius: 14px;
-        padding: 20px;
+        padding: 18px;
+      }
+      .exp {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .focus-list li,
+      .direction-list li {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .focus-num,
+      .direction-num {
+        margin-bottom: 2px;
+      }
+      .contact-links li {
+        grid-template-columns: 1fr auto;
+        row-gap: 4px;
+      }
+      .contact-links .k {
+        grid-column: 1 / -1;
+      }
+      .contact-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .button-link {
+        justify-content: center;
+        width: 100%;
       }
     }
+
+    @media (max-width: 480px) {
+      .shell {
+        width: min(var(--max), calc(100% - 30px));
+      }
+      body { font-size: 15px; }
+      .hero-name {
+        font-size: clamp(44px, 16vw, 62px);
+      }
+      .writing-card,
+      .writing-column,
+      .gallery-card {
+        padding: 16px;
+      }
+      .writing-card-title,
+      .gallery-title,
+      .exp-title {
+        text-wrap: pretty;
+      }
+    }
+    .route-ornament {
+      display: none;
+    }
+
+    @media (min-width: 1280px) {
+      .route-ornament {
+        display: block;
+        position: fixed;
+        top: 108px;
+        right: max(18px, calc((100vw - min(1120px, 100vw - 48px)) / 2 - 34px));
+        width: 24px;
+        height: calc(100vh - 156px);
+        pointer-events: none;
+        z-index: 3;
+        opacity: 0.55;
+      }
+      .route-line {
+        position: absolute;
+        inset: 0 auto 0 11px;
+        width: 1px;
+        background: linear-gradient(to bottom, rgba(150,140,124,0.16), rgba(150,140,124,0.46), rgba(150,140,124,0.16));
+      }
+      .route-dot {
+        position: absolute;
+        left: 7px;
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(29,53,80,0.2);
+        background: var(--paper);
+        box-shadow: 0 0 0 4px rgba(235,230,217,0.9);
+        transform: translateY(-50%);
+      }
+      .route-ship {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 22px;
+        height: 22px;
+        color: rgba(29,53,80,0.52);
+        transform: translateY(0);
+        will-change: transform;
+      }
+      .route-ship svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+  
+    .vessel-background {
+      position: fixed;
+      top: 72px;
+      left: 50%;
+      width: min(46vw, 760px);
+      height: min(34vw, 420px);
+      transform: translateX(-6%);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.12;
+      overflow: visible;
+    }
+    .vessel-background svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .vessel-background .charcoal {
+      stroke: rgba(24, 24, 24, 0.92);
+      stroke-width: 1.55;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      filter: url(#charcoalTexture);
+    }
+    .vessel-background .charcoal-soft {
+      stroke: rgba(24, 24, 24, 0.52);
+      stroke-width: 1.1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      filter: url(#charcoalTexture);
+    }
+    .vessel-background .wash {
+      fill: rgba(20, 20, 20, 0.035);
+      filter: blur(0.3px);
+    }
+    main, .site-header, .site-footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 1279px) {
+      .vessel-background {
+        width: min(52vw, 620px);
+        height: min(38vw, 340px);
+        opacity: 0.09;
+        transform: translateX(-2%);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .vessel-background {
+        width: min(62vw, 420px);
+        height: min(42vw, 220px);
+        opacity: 0.06;
+        top: 84px;
+        transform: translateX(4%);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .vessel-background {
+        display: none;
+      }
+    }
+
   </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="shell topbar-inner">
-      <a href="../index.html" class="brand">Yavuz Tursin</a>
-      <a href="../index.html#writing" class="back-link">Back to writing</a>
+
+  <div class="vessel-background" aria-hidden="true">
+    <svg viewBox="0 0 920 520" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="charcoalTexture" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="7" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.55" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+
+      <!-- soft wash -->
+      <path class="wash" d="M188 268c73-18 146-25 230-28 126-4 252 6 352 33-54 12-102 18-178 24-123 9-243 6-404-29z"/>
+
+      <!-- hull -->
+      <path class="charcoal" d="M124 286c26-1 73-1 123-2 89-2 233-4 336-4 43 0 85 0 120 2 11 17 21 37 28 55-56 9-160 15-281 18-147 4-278-3-377-20-4-18 13-35 51-49z"/>
+      <path class="charcoal-soft" d="M167 298c58-2 138-3 229-4 105-1 208 0 285 4"/>
+      <path class="charcoal-soft" d="M120 339c93 17 214 25 347 23 110-2 201-9 271-21"/>
+
+      <!-- deck line -->
+      <path class="charcoal" d="M214 262c58-1 113-2 173-3 67-1 136-1 205 1 43 1 84 3 128 7"/>
+
+      <!-- stern housing -->
+      <path class="charcoal" d="M605 257v-71h48v71"/>
+      <path class="charcoal" d="M653 257v-95h37v95"/>
+      <path class="charcoal-soft" d="M616 208h26"/>
+      <path class="charcoal-soft" d="M664 184h20"/>
+
+      <!-- bridge + mast -->
+      <path class="charcoal" d="M689 257v-118h30v118"/>
+      <path class="charcoal" d="M704 139v-32"/>
+      <path class="charcoal-soft" d="M699 121h11"/>
+
+      <!-- manifold / deck structures -->
+      <path class="charcoal-soft" d="M310 259v-26"/>
+      <path class="charcoal-soft" d="M337 259v-20"/>
+      <path class="charcoal-soft" d="M366 259v-24"/>
+      <path class="charcoal-soft" d="M395 259v-18"/>
+      <path class="charcoal-soft" d="M425 259v-23"/>
+      <path class="charcoal-soft" d="M454 259v-21"/>
+      <path class="charcoal-soft" d="M483 259v-24"/>
+      <path class="charcoal-soft" d="M512 259v-18"/>
+
+      <!-- bow hint -->
+      <path class="charcoal" d="M121 286c10-21 34-40 65-52"/>
+      <path class="charcoal-soft" d="M144 303c9-16 24-30 44-41"/>
+
+      <!-- waterline gesture -->
+      <path class="charcoal-soft" d="M96 382c29 9 57 13 82 13 26 0 47-4 69-11 18-6 34-10 56-11 23-1 43 2 66 9"/>
+      <path class="charcoal-soft" d="M421 380c24 7 45 10 65 10 23 0 42-4 64-11 18-6 36-10 59-10 22 0 43 4 66 12"/>
+    </svg>
+  </div>
+
+  <div class="route-ornament" aria-hidden="true">
+    <span class="route-line"></span>
+    <span class="route-dot" data-track="about"></span>
+    <span class="route-dot" data-track="writing"></span>
+    <span class="route-dot" data-track="experience"></span>
+    <span class="route-dot" data-track="focus"></span>
+    <span class="route-dot" data-track="direction"></span>
+    <span class="route-dot" data-track="gallery"></span>
+    <span class="route-dot" data-track="contact"></span>
+    <div class="route-ship" id="routeShip">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 39.5H47.5L42.8 45.5H20.2L14 39.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M25 39.5V28.5H35.5V39.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M35.5 39.5V24H41V39.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M27.8 31.8H32.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M38.2 27.8H41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell site-header-inner">
+      <a href="#top" class="site-name">Yavuz Tursin</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#writing">Writing</a>
+        <a href="#experience">Experience</a>
+        <a href="#focus">Focus Areas</a>
+        <a href="#direction">Current Interests</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <main class="article shell">
-    <p class="article-kicker">Reflection</p>
-    <div class="article-meta">
-      <span>Published</span>
-      <span>April 2026</span>
-      <span>German Tanker Shipping</span>
-    </div>
-
-    <h1 class="article-title">First month in chartering — what stood out to me early on</h1>
-    <p class="article-intro">A short reflection on the first month at German Tanker Shipping: what felt different from my expectations, what I noticed early, and why the work looks different once you are actually inside it.</p>
-
-    <div class="article-body">
-
-      <p class="lead">One month is obviously not enough to understand chartering properly, but it is enough to realise that the work feels very different once you are actually sitting inside it.</p>
-
-      <p>Before I started, I mostly thought about chartering through the usual words: freight, fixtures, market logic, negotiations. Those things are still there, but being in the office makes the day-to-day side much more visible. You start noticing how much of the work depends on timing, how carefully information has to be handled, and how quickly small details can matter when they sit inside a live commercial process.</p>
-
-      <p>One of the first things that stood out to me was how much attention the work needs. Not in a dramatic way, just in a disciplined way. You pay attention to how people communicate, how information moves, how records are kept, and how the desk stays organised enough for decisions to actually be made. From the outside, that part is easy to underestimate.</p>
-
-      <p>The month also made the relationship between theory and practice much clearer to me. At university, you learn concepts, terms, and structure. At work, those things stop feeling abstract because they attach themselves to real tasks and real conversations. That has probably been the most useful part so far.</p>
-
-      <p>Another thing I noticed quite early is that the commercial side of shipping feels much more human than it can look from a distance. Of course numbers matter, but so do coordination, trust, timing, and the way people work together. That part became much clearer once I was inside the environment instead of just thinking about it from outside.</p>
-
-      <p>After the first month, I do not feel like I know a lot. If anything, I see more clearly how much there is still to learn. But I do feel more certain that this is the side of shipping I want to stay close to, because the work feels real, demanding, and worth taking seriously.</p>
-
-      <p>That is really all this reflection is meant to say. Not something big, just an honest record of what the first month changed for me and how it made the work feel more concrete than it did before.</p>
-
-
-      <div class="article-footer">
-        <span>Yavuz Tursin · Bremen</span>
-        <a href="../index.html#writing">Back to writing →</a>
+  <main>
+    <section id="top" class="hero shell" aria-labelledby="hero-name">
+      <h1 class="hero-name" id="hero-name">Yavuz <em>Tursin</em></h1>
+      <div class="hero-grid">
+        <div>
+          <p class="hero-tagline">Commercial shipping, chartering, shipbroking, and freight markets.</p>
+          <p class="hero-summary">I work in chartering at German Tanker Shipping and study Shipping &amp; Chartering at Hochschule Bremen. I use this site to publish articles, personal reflections, and selected maritime photos.</p>
+        </div>
+        <p class="hero-credentials">
+          Chartering Werkstudent at <strong>German Tanker Shipping</strong><br>
+          B.Sc. Shipping &amp; Chartering at <strong>Hochschule Bremen</strong><br>
+          Based in Bremen
+        </p>
       </div>
-    </div>
+    </section>
+
+    <section id="about" class="shell" aria-labelledby="about-title">
+      <p class="section-label rv">About</p>
+      <h2 class="section-title rv d1" id="about-title">Work, study, and interests in shipping.</h2>
+      <div class="about-grid rv d2">
+        <div class="about-copy">
+          <p class="about-p">I am originally from Türkiye and now based in Bremen. At the moment, I am learning shipping through two things at the same time: day-to-day work in chartering and my studies at Hochschule Bremen.</p>
+          <p class="about-p">My main long-term interest is the commercial side of shipping, especially shipbroking. Tankers are still a real interest for me because of their connection to oil, energy, and freight, but I want to stay open to the wider commercial side of the industry as well.</p>
+        </div>
+        <figure class="about-photo-wrap">
+          <img class="about-photo" src="photo.jpg" alt="Portrait of Yavuz Tursin">
+          <figcaption class="about-photo-caption">Yavuz Tursin · Bremen</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="writing" class="shell" aria-labelledby="writing-title">
+      <p class="section-label rv">Writing</p>
+      <h2 class="section-title rv d1" id="writing-title">Articles and reflections.</h2>
+      <p class="section-intro rv d2">I want the writing on this site to be easy to find. Articles are for industry and market topics. Reflections are more personal and closer to what I am learning directly from work and study.</p>
+
+      <div class="writing-grid rv d2">
+        <div class="writing-column">
+          <p class="writing-kind">Articles</p>
+          <h3 class="writing-column-title">Professional writing.</h3>
+          <p class="writing-column-intro">This section is for industry topics, market questions, and more structured articles. The next topic I want to publish is the Arctic Route. Later I want to add more pieces on commercial shipping, shipbroking, tanker markets, and energy-related topics.</p>
+
+          <div class="writing-card" aria-label="Planned professional article">
+            <span class="writing-status planned">Planned next</span>
+            <h4 class="writing-card-title">The Arctic Route — strategic promise, commercial limits, and shipping reality</h4>
+            <p class="writing-card-copy">A piece on whether the route is really commercially important once cost, seasonality, infrastructure, and risk are looked at properly.</p>
+            <div class="writing-meta">
+              <span>Topic</span>
+              <span>Arctic Route</span>
+              <span>Professional Article</span>
+            </div>
+          </div>
+
+          <div class="writing-empty">Published articles will appear here.</div>
+        </div>
+
+        <div class="writing-column">
+          <p class="writing-kind">Reflections</p>
+          <h3 class="writing-column-title">Personal reflections.</h3>
+          <p class="writing-column-intro">This section is for personal reflections. These pieces are not meant to sound polished. They are there to record what the work feels like while I am still early in it.</p>
+
+          <a href="posts/first-month-chartering.html" class="writing-card" aria-label="Read reflection on first month in chartering">
+            <span class="writing-status">Published</span>
+            <h4 class="writing-card-title">First month in chartering — what stood out to me early on</h4>
+            <p class="writing-card-copy">A short reflection on the first month at German Tanker Shipping: what the desk feels like in real life, what starts to matter quickly, and what looks different once you are actually inside it.</p>
+            <div class="writing-meta">
+              <span>April 2026</span>
+              <span>Reflection</span>
+              <span>German Tanker Shipping</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="shell" aria-labelledby="experience-title">
+      <p class="section-label rv">Experience</p>
+      <h2 class="section-title rv d1" id="experience-title">Current work and study.</h2>
+      <p class="section-intro rv d2">Still early, but already tied to real work in shipping.</p>
+
+      <div class="exp-list rv d2">
+        <article class="exp">
+          <div class="exp-dateline">Mar 2026 — Present<br>Bremen · DE</div>
+          <div>
+            <h3 class="exp-title">German Tanker Shipping — Chartering Werkstudent</h3>
+            <p class="exp-prose">I work with the chartering team and support day-to-day commercial work around the company’s tanker fleet. That includes vessel and emissions data, tonnage records, and the information used in daily decisions. The most useful part is seeing how a live desk actually works.</p>
+          </div>
+        </article>
+
+        <article class="exp">
+          <div class="exp-dateline">2024 — Present<br>Bremen · DE</div>
+          <div>
+            <h3 class="exp-title">Hochschule Bremen — B.Sc. Shipping &amp; Chartering</h3>
+            <p class="exp-prose">The degree is focused on shipping itself rather than broad business theory. Doing it alongside chartering work makes the material much easier to connect to real situations.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="focus" class="shell" aria-labelledby="focus-title">
+      <p class="section-label rv">Focus Areas</p>
+      <h2 class="section-title rv d1" id="focus-title">What I read and track.</h2>
+      <p class="section-intro rv d2">These are the topics I keep coming back to most.</p>
+
+      <ol class="focus-list rv d2">
+        <li>
+          <span class="focus-num">01</span>
+          <span class="focus-name">Commercial shipping markets</span>
+          <span class="focus-note">How freight markets behave across segments, and how commercial logic shapes decisions.</span>
+        </li>
+        <li>
+          <span class="focus-num">02</span>
+          <span class="focus-name">Shipbroking and chartering</span>
+          <span class="focus-note">How cargo, tonnage, timing, and relationships come together on the commercial side of shipping.</span>
+        </li>
+        <li>
+          <span class="focus-num">03</span>
+          <span class="focus-name">Freight and route dynamics</span>
+          <span class="focus-note">How disruptions, rerouting, and distance changes reshape utilisation and market balance.</span>
+        </li>
+        <li>
+          <span class="focus-num">04</span>
+          <span class="focus-name">Shipping politics and sanctions</span>
+          <span class="focus-note">How regulation, sanctions, and political decisions reshape trade routes, fleet use, and freight demand.</span>
+        </li>
+        <li>
+          <span class="focus-num">05</span>
+          <span class="focus-name">Energy markets and oil economy</span>
+          <span class="focus-note">How oil flows, refinery geography, and energy economics connect back to shipping demand.</span>
+        </li>
+        <li>
+          <span class="focus-num">06</span>
+          <span class="focus-name">Fleet supply and tonnage</span>
+          <span class="focus-note">Orderbook, scrapping, yard capacity, and age profile across shipping markets.</span>
+        </li>
+        <li>
+          <span class="focus-num">07</span>
+          <span class="focus-name">Voyage economics and charter-party logic</span>
+          <span class="focus-note">TCEs, bunkers, port costs, and the contractual logic behind commercial decisions.</span>
+        </li>
+      </ol>
+    </section>
+
+    <section id="direction" class="shell" aria-labelledby="direction-title">
+      <p class="section-label rv">Current Interests</p>
+      <h2 class="section-title rv d1" id="direction-title">What I am paying attention to at the moment.</h2>
+      <p class="section-intro rv d2">A few simple ideas behind how I want to grow in the industry.</p>
+
+      <ol class="direction-list rv d2">
+        <li>
+          <span class="direction-num">01</span>
+          <h3 class="direction-heading">Getting used to how a commercial desk actually works.</h3>
+          <p class="direction-copy">A lot of things make more sense once they are tied to real timing, real workflow, and real people instead of just theory.</p>
+        </li>
+        <li>
+          <span class="direction-num">02</span>
+          <h3 class="direction-heading">Keeping my interests broad inside shipping.</h3>
+          <p class="direction-copy">Tankers are a real interest of mine, especially because of oil and energy, but I also want to stay open to the wider commercial side of shipping and shipbroking.</p>
+        </li>
+        <li>
+          <span class="direction-num">03</span>
+          <h3 class="direction-heading">Using writing to sort out what I actually think.</h3>
+          <p class="direction-copy">Some pieces here will be more professional and some more personal. Both are useful because writing shows very quickly what is clear and what is still vague.</p>
+        </li>
+        <li>
+          <span class="direction-num">04</span>
+          <h3 class="direction-heading">Paying attention to markets, not just job titles.</h3>
+          <p class="direction-copy">What matters to me is learning how the commercial side of shipping really works over time, not just trying to look impressive too early.</p>
+        </li>
+</ol>
+    </section>
+
+    <section id="gallery" class="shell" aria-labelledby="gallery-title">
+      <p class="section-label rv">Gallery</p>
+      <h2 class="section-title rv d1" id="gallery-title">Gallery.</h2>
+      
+      <div class="gallery-grid rv d2">
+        <figure class="gallery-card">
+          <img class="gallery-image" src="images/gallery/rotterdam-vessel.jpg" alt="Vessel artwork photographed at the Maritime Museum Rotterdam">
+          <figcaption class="gallery-copy">
+            <h3 class="gallery-title">Vessel artwork — Maritime Museum Rotterdam</h3>
+            <p class="gallery-note">Photographed at the Maritime Museum Rotterdam.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="contact" class="shell" aria-labelledby="contact-title">
+      <p class="section-label rv">Contact</p>
+      <h2 class="section-title rv d1" id="contact-title">Get in touch.</h2>
+      <p class="contact-intro rv d2">Open to serious conversations about shipping, chartering, shipbroking, freight markets, and related opportunities.</p>
+
+      <div class="contact-actions rv d2">
+        <a href="mailto:contact@yavuztursin.com" class="button-link" aria-label="Email Yavuz Tursin">Email</a>
+        <a href="mailto:contact@yavuztursin.com?subject=CV%20Request" class="button-link secondary" aria-label="Request CV from Yavuz Tursin">Request CV</a>
+      </div>
+
+      <ul class="contact-links rv d2">
+        <li>
+          <span class="k">LinkedIn</span>
+          <a class="v" href="https://linkedin.com/in/yavuztursin" target="_blank" rel="noopener">linkedin.com/in/yavuztursin</a>
+          <span class="a">↗</span>
+        </li>
+        <li>
+          <span class="k">Email</span>
+          <a class="v" href="mailto:contact@yavuztursin.com">contact@yavuztursin.com</a>
+          <span class="a">Mail</span>
+        </li>
+        <li>
+          <span class="k">Location</span>
+          <span class="v">Bremen, Germany</span>
+          <span class="a">DE</span>
+        </li>
+      </ul>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="shell site-footer-inner">
+      <span>© 2026 Yavuz Tursin · Bremen</span>
+      <a href="https://linkedin.com/in/yavuztursin" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.rv');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('on'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('on');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href');
+        if (id.length < 2) return;
+        var target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    (function () {
+      var ornament = document.querySelector('.route-ornament');
+      var ship = document.getElementById('routeShip');
+      if (!ornament || !ship || window.innerWidth < 1280) return;
+
+      var dots = Array.prototype.slice.call(document.querySelectorAll('.route-dot[data-track]'));
+
+      function placeDots() {
+        var maxTrack = Math.max(0, ornament.clientHeight - 10);
+        var scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        dots.forEach(function (dot) {
+          var id = dot.getAttribute('data-track');
+          var section = document.getElementById(id);
+          if (!section) return;
+          var sectionCenter = section.offsetTop + (section.offsetHeight / 2);
+          var y = (sectionCenter / Math.max(document.documentElement.scrollHeight, 1)) * ornament.clientHeight;
+          y = Math.max(8, Math.min(maxTrack, y));
+          dot.style.top = y + 'px';
+        });
+      }
+
+      var ticking = false;
+      function updateShip() {
+        var scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        var progress = Math.min(1, Math.max(0, window.scrollY / scrollable));
+        var travel = Math.max(0, ornament.clientHeight - ship.offsetHeight);
+        var drift = Math.sin(progress * Math.PI * 2) * 1.8;
+        ship.style.transform = 'translateY(' + (progress * travel) + 'px) translateX(' + drift + 'px)';
+        ticking = false;
+      }
+
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateShip);
+          ticking = true;
+        }
+      }
+
+      placeDots();
+      updateShip();
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1280) {
+          placeDots();
+          updateShip();
+        }
+      });
+      window.addEventListener('load', function () {
+        if (window.innerWidth >= 1280) {
+          placeDots();
+          updateShip();
+        }
+      });
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+  </script>
 </body>
 </html>
