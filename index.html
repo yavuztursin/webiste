@@ -271,8 +271,10 @@ section {
 }
 .gallery-image {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  height: auto;
+  max-height: 780px;
+  display: block;
+  object-fit: contain;
   object-position: center center;
   border: 1px solid var(--rule-soft);
   background: #d9d2bf;
@@ -947,7 +949,7 @@ section {
         <img class="gallery-image" src="images/gallery/rotterdam-vessel.jpg" alt="Vessel artwork photographed at the Maritime Museum Rotterdam">
         <figcaption class="gallery-copy">
           <h3 class="gallery-title">Vessel artwork — Maritime Museum Rotterdam</h3>
-          <p class="gallery-note">Photographed at the Maritiem Museum Rotterdam. I liked how the piece reduces a vessel to shape, light, and presence.</p>
+          <p class="gallery-note">Photographed at the Maritime Museum Rotterdam. I liked how the piece reduces a vessel to shape, light, and presence.</p>
         </figcaption>
       </figure>
     </div>
