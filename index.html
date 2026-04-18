@@ -269,6 +269,14 @@ section {
   border: 1px solid var(--rule-soft);
   padding: 14px;
 }
+.gallery-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center center;
+  border: 1px solid var(--rule-soft);
+  background: #d9d2bf;
+}
 .gallery-placeholder {
   aspect-ratio: 4 / 5;
   display: grid;
@@ -935,13 +943,13 @@ section {
     <h2 class="section-title rv d1" id="gallery-title">Photographs and short notes.</h2>
     <p class="gallery-intro rv d2">This section is reserved for selected images from work, travel, and the environments around shipping. Each entry will carry a short comment underneath it when published.</p>
     <div class="gallery-grid rv d2">
-      <article class="gallery-card gallery-card-empty">
-        <div class="gallery-placeholder" aria-hidden="true">No images published yet</div>
-        <div class="gallery-copy">
-          <h3 class="gallery-title">Gallery archive</h3>
-          <p class="gallery-note">Future photographs and brief written notes will appear here.</p>
-        </div>
-      </article>
+      <figure class="gallery-card">
+        <img class="gallery-image" src="images/gallery/rotterdam-vessel.jpg" alt="Vessel artwork photographed at the Maritime Museum Rotterdam">
+        <figcaption class="gallery-copy">
+          <h3 class="gallery-title">Vessel artwork — Maritime Museum Rotterdam</h3>
+          <p class="gallery-note">Photographed at the Maritime Museum Rotterdam. I liked how the piece reduces a vessel to shape, light, and presence.</p>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
