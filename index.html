@@ -305,7 +305,7 @@
       height: 8px;
       border-radius: 999px;
       background: var(--accent);
-      opacity: 0.55;
+      opacity: 0.35;
     }
     .writing-status.planned { color: var(--ink-muted); }
     .writing-status.planned::before { background: var(--ink-muted); }
@@ -688,7 +688,7 @@
         height: calc(100vh - 156px);
         pointer-events: none;
         z-index: 3;
-        opacity: 0.55;
+        opacity: 0.35;
       }
       .route-line {
         position: absolute;
@@ -724,44 +724,24 @@
       }
     }
 
-  
     .vessel-background {
       position: fixed;
       top: 72px;
       left: 50%;
-      width: min(48vw, 800px);
-      height: min(28vw, 330px);
-      transform: translateX(-4%);
+      width: min(54vw, 980px);
+      height: min(36vw, 500px);
+      transform: translateX(-2%);
       pointer-events: none;
       z-index: 0;
-      opacity: 0.10;
-      overflow: visible;
+      opacity: 0.14;
+      background-image: url('vessel-sketch-background.jpeg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      filter: grayscale(1) contrast(1.06) brightness(0.86);
+      mix-blend-mode: multiply;
     }
-    .vessel-background svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    .vessel-background .charcoal {
-      stroke: rgba(24, 24, 24, 0.92);
-      stroke-width: 1.55;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
-      filter: url(#charcoalTexture);
-    }
-    .vessel-background .charcoal-soft {
-      stroke: rgba(24, 24, 24, 0.52);
-      stroke-width: 1.1;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
-      filter: url(#charcoalTexture);
-    }
-    .vessel-background .wash {
-      fill: rgba(20, 20, 20, 0.035);
-      filter: blur(0.3px);
-    }
+
     main, .site-header, .site-footer {
       position: relative;
       z-index: 1;
@@ -769,20 +749,20 @@
 
     @media (max-width: 1279px) {
       .vessel-background {
-        width: min(52vw, 620px);
-        height: min(38vw, 340px);
-        opacity: 0.09;
-        transform: translateX(-2%);
+        width: min(58vw, 820px);
+        height: min(38vw, 400px);
+        opacity: 0.11;
+        transform: translateX(2%);
       }
     }
 
     @media (max-width: 920px) {
       .vessel-background {
-        width: min(62vw, 420px);
-        height: min(42vw, 220px);
-        opacity: 0.06;
-        top: 84px;
-        transform: translateX(4%);
+        width: min(66vw, 540px);
+        height: min(38vw, 260px);
+        top: 86px;
+        opacity: 0.08;
+        transform: translateX(8%);
       }
     }
 
@@ -796,58 +776,8 @@
 </head>
 
 <body>
-
-  
-  <div class="vessel-background" aria-hidden="true">
-    <svg viewBox="0 0 980 520" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="charcoalTexture" x="-20%" y="-20%" width="140%" height="140%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="1" seed="5" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.25" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
-      </defs>
-
-      <!-- sharp wash -->
-      <path class="wash" d="M250 250L738 250L826 304L682 332L320 332L216 290Z"/>
-
-      <!-- upper silhouette -->
-      <path class="charcoal" d="M270 248H594L634 214H698L726 180H760L790 248"/>
-
-      <!-- hull -->
-      <path class="charcoal" d="M176 286L244 250H792L854 286L804 318L302 318L220 310Z"/>
-
-      <!-- chine / lower break lines -->
-      <path class="charcoal-soft" d="M228 300L302 286H804"/>
-      <path class="charcoal-soft" d="M256 266H778"/>
-
-      <!-- superstructure -->
-      <path class="charcoal" d="M594 248V206H636V248"/>
-      <path class="charcoal" d="M636 248V176H690V248"/>
-      <path class="charcoal" d="M690 248V156H736V248"/>
-
-      <!-- sharp mast -->
-      <path class="charcoal" d="M719 156V118"/>
-      <path class="charcoal-soft" d="M706 132H732"/>
-
-      <!-- deck details -->
-      <path class="charcoal-soft" d="M334 248V222"/>
-      <path class="charcoal-soft" d="M378 248V228"/>
-      <path class="charcoal-soft" d="M424 248V220"/>
-      <path class="charcoal-soft" d="M470 248V226"/>
-      <path class="charcoal-soft" d="M516 248V221"/>
-
-      <!-- stern cut -->
-      <path class="charcoal-soft" d="M792 250L834 286"/>
-
-      <!-- bow line -->
-      <path class="charcoal-soft" d="M244 250L176 286"/>
-
-      <!-- water gesture -->
-      <path class="charcoal-soft" d="M190 360L262 350L344 356L430 346L536 356L644 346L744 356L844 346"/>
-      <path class="charcoal-soft" d="M232 382L306 374L392 380L490 370L606 382L718 370L812 380"/>
-    </svg>
-  </div>
-  <header class="site-header">
+  <div class="vessel-background" aria-hidden="true"></div>
+<header class="site-header">
     <div class="shell site-header-inner">
       <a href="#top" class="site-name">Yavuz Tursin</a>
       <nav class="site-nav" aria-label="Primary">
