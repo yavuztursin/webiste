@@ -93,7 +93,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   top: 0;
   z-index: 20;
   backdrop-filter: blur(10px);
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  background: rgba(235, 230, 217, 0.9);
   border-bottom: 1px solid var(--rule-soft);
 }
 .site-header-inner {
@@ -154,7 +154,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--ink);
-  max-width: 14ch;
+  max-width: 15ch;
   margin-bottom: 22px;
   font-variation-settings: "opsz" 72;
   text-wrap: balance;
@@ -203,6 +203,12 @@ section {
   text-wrap: balance;
 }
 
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(240px, 360px);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+}
 .about-p {
   font-family: var(--f-serif);
   font-size: clamp(17px, 1.35vw, 20px);
@@ -214,6 +220,26 @@ section {
   text-wrap: pretty;
 }
 .about-p:last-child { margin-bottom: 0; }
+.about-photo-wrap {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule-soft);
+  padding: 14px;
+}
+.about-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  background: #d9d2bf;
+}
+.about-photo-caption {
+  margin-top: 12px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
 
 .notes-intro,
 .focus-intro {
@@ -523,6 +549,8 @@ section {
   .site-nav { display: none; }
   .hero-grid { grid-template-columns: 1fr; gap: 26px; }
   .hero-tagline { max-width: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo-wrap { max-width: 360px; }
   .exp { grid-template-columns: 1fr; gap: 10px; }
   .exp-dateline { padding-top: 0; }
   .focus-list li {
@@ -577,9 +605,15 @@ section {
   <section id="about" class="shell" aria-labelledby="about-title">
     <p class="section-label rv">About</p>
     <h2 class="section-title rv d1" id="about-title">Where I stand, and what I am building toward.</h2>
-    <div class="rv d2">
-      <p class="about-p">Originally from Türkiye, now based in Bremen. I work in the chartering team at German Tanker Shipping while studying Shipping &amp; Chartering at Hochschule Bremen.</p>
-      <p class="about-p">My focus is narrow on purpose: tanker markets, freight economics, and how fixtures actually get done. I would rather learn one segment properly than look broad too early. This site is where I collect that work in public — through market notes, focus areas, and a clear record of the direction I am taking.</p>
+    <div class="about-grid rv d2">
+      <div>
+        <p class="about-p">Originally from Türkiye, now based in Bremen. I work in the chartering team at German Tanker Shipping while studying Shipping &amp; Chartering at Hochschule Bremen.</p>
+        <p class="about-p">My focus is narrow on purpose: tanker markets, freight economics, and how fixtures actually get done. I would rather learn one segment properly than look broad too early. This site is where I collect that work in public — through market notes, focus areas, and a clear record of the direction I am taking.</p>
+      </div>
+      <figure class="about-photo-wrap">
+        <img class="about-photo" src="photo.jpg" alt="Portrait of Yavuz Tursin">
+        <figcaption class="about-photo-caption">Yavuz Tursin · Bremen</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -707,7 +741,7 @@ section {
   <section id="contact" class="shell" aria-labelledby="contact-title">
     <p class="section-label rv">Contact</p>
     <h2 class="section-title rv d1" id="contact-title">Get in touch.</h2>
-    <p class="contact-intro rv d2">Email is the best way to reach me. I am always open to thoughtful conversations about tanker markets, chartering, shipbroking, and serious commercial shipping work.</p>
+    <p class="contact-intro rv d2">Email is the best way to reach me. I am open to thoughtful conversations about tanker markets, chartering, shipbroking, and serious commercial shipping work.</p>
     <a href="mailto:contact@yavuztursin.com" class="contact-email rv d2" aria-label="Email Yavuz Tursin">contact@yavuztursin.com</a>
     <ul class="contact-links rv d2">
       <li>
