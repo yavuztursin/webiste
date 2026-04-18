@@ -3,124 +3,193 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What I'm learning from working in chartering so far — Yavuz Tursin</title>
-<meta name="description" content="Reflections from the first month as a Chartering Werkstudent at German Tanker Shipping.">
+<title>First weeks in chartering — what the work actually teaches · Yavuz Tursin</title>
+<meta name="description" content="A first record of what becomes visible in the opening weeks on a tanker chartering desk — desk rhythm, market attention, and the gap between theory and live commercial work.">
+<meta name="author" content="Yavuz Tursin">
+<meta name="theme-color" content="#ebe6d9">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=DM+Mono:wght@300&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
-  background: #080808;
-  color: #eeebe6;
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  line-height: 1.6;
+  background: #ebe6d9;
+  color: #17140e;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 16.5px;
+  line-height: 1.62;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
-a { text-decoration: none; color: inherit; }
-::selection { background: #eeebe6; color: #080808; }
-::-webkit-scrollbar { width: 2px; }
-::-webkit-scrollbar-thumb { background: #222; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+::selection { background: #17140e; color: #ebe6d9; }
+
 :root {
-  --bg: #080808;
-  --s1: #0e0e0e;
-  --b0: rgba(255,255,255,0.06);
-  --t0: #eeebe6;
-  --t1: #666;
-  --t2: #2e2e2e;
-  --f-serif: 'Playfair Display', Georgia, serif;
-  --f-mono: 'DM Mono', monospace;
-  --max: 680px;
-  --gutter: 60px;
+  --paper: #ebe6d9;
+  --paper-deep: #e4ddcb;
+  --ink: #17140e;
+  --ink-soft: #55504a;
+  --ink-muted: #8f8a7a;
+  --rule-soft: #dbd5c2;
+  --accent: #1d3550;
+  --f-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --f-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --f-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --max: 860px;
+  --gutter: clamp(22px, 4vw, 56px);
 }
 
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0 var(--gutter); height: 58px;
-  background: rgba(8,8,8,.93);
-  border-bottom: 1px solid var(--b0);
+.shell {
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   backdrop-filter: blur(10px);
+  background: rgba(235, 230, 217, 0.9);
+  border-bottom: 1px solid var(--rule-soft);
 }
-.nav-logo { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .1em; color: var(--t0); }
-.nav-back { font-family: var(--f-mono); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--t1); transition: color .2s; display: flex; align-items: center; gap: 8px; }
-.nav-back:hover { color: var(--t0); }
-
-/* POST */
-.post-wrap { max-width: var(--max); margin: 0 auto; padding: 112px var(--gutter) 96px; }
-
-.post-meta {
-  display: flex; align-items: baseline; gap: 20px;
-  margin-bottom: 40px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--b0);
+.site-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 18px 0;
 }
-.post-meta-date { font-family: var(--f-mono); font-size: .6rem; letter-spacing: .14em; color: var(--t2); }
-.post-meta-tag  { font-family: var(--f-mono); font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--t1); }
+.site-name,
+.back-link {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.site-name { color: var(--ink); }
+.back-link { color: var(--ink-soft); transition: color .18s ease; }
+.back-link:hover { color: var(--accent); }
 
-.post-title {
+.article {
+  padding-top: clamp(64px, 9vw, 112px);
+  padding-bottom: clamp(72px, 10vw, 120px);
+}
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.article-meta .tag { color: var(--accent); }
+.article-title {
   font-family: var(--f-serif);
-  font-size: clamp(28px, 5vw, 44px);
   font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.12;
-  margin-bottom: 48px;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -0.028em;
+  color: var(--ink);
+  max-width: 12ch;
+  margin-bottom: 26px;
+  font-variation-settings: "opsz" 96;
+  text-wrap: balance;
+}
+.article-dek {
+  font-family: var(--f-sans);
+  font-size: 16px;
+  line-height: 1.68;
+  color: var(--ink-soft);
+  max-width: 56ch;
+  margin-bottom: 54px;
+}
+.article-body {
+  max-width: 64ch;
+  border-top: 1px solid #17140e;
+  padding-top: 28px;
+}
+.article-body p {
+  font-family: var(--f-serif);
+  font-size: clamp(17px, 1.25vw, 19px);
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 1.15em;
+  font-variation-settings: "opsz" 22;
+  text-wrap: pretty;
+}
+.article-body p:last-child { margin-bottom: 0; }
+.article-footer {
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.article-signoff {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.article-footer a {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
-.post-body { display: flex; flex-direction: column; gap: 22px; }
-.post-body p {
-  font-size: .96rem;
-  color: rgba(238,235,230,.68);
-  line-height: 1.85;
-}
-
-.post-foot {
-  margin-top: 64px;
-  padding-top: 32px;
-  border-top: 1px solid var(--b0);
-  display: flex; justify-content: space-between; align-items: center;
-}
-.post-foot-author { font-family: var(--f-mono); font-size: .6rem; letter-spacing: .12em; color: var(--t2); }
-.post-back-link { font-family: var(--f-mono); font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--t1); transition: color .2s; display: flex; align-items: center; gap: 7px; }
-.post-back-link:hover { color: var(--t0); }
-
-@media (max-width: 700px) {
-  :root { --gutter: 22px; }
-  .post-wrap { padding-top: 96px; }
+@media (max-width: 560px) {
+  .site-header-inner,
+  .article-footer { align-items: flex-start; }
+  .article-title { max-width: none; }
 }
 </style>
 </head>
 <body>
+<header class="site-header">
+  <div class="shell site-header-inner">
+    <a href="../index.html" class="site-name">Yavuz Tursin</a>
+    <a href="../index.html#notes" class="back-link">← Back to market notes</a>
+  </div>
+</header>
 
-<nav>
-  <a href="../index.html" class="nav-logo">Yavuz Tursin</a>
-  <a href="../index.html#posts" class="nav-back">← Writing</a>
-</nav>
-
-<div class="post-wrap">
-  <div class="post-meta">
-    <span class="post-meta-date">April 2026</span>
-    <span class="post-meta-tag">Chartering</span>
+<main class="article shell">
+  <div class="article-meta">
+    <span class="tag">Published</span>
+    <span>April 2026</span>
+    <span>Chartering</span>
   </div>
 
-  <h1 class="post-title">What I'm learning from working in chartering so far</h1>
+  <h1 class="article-title">First weeks in chartering — what the work actually teaches</h1>
+  <p class="article-dek">A first record of what becomes visible once chartering stops being abstract: desk rhythm, market attention, and the gap between theory and live commercial work.</p>
 
-  <div class="post-body">
-    <p>It has now been almost one month since I started my Werkstudent role in the Chartering Department at German Tanker Shipping.</p>
-    <p>Even in this short time, I've already gained a much clearer view of how fixtures come together, how information moves within the market and across the workplace, and how relationship-driven the commercial side of shipping really is.</p>
-    <p>What has stood out to me most is how much the job depends on timing, clear communication, and trust. From the outside, chartering can look purely commercial and numbers-driven. In reality, relationships and coordination seem to matter just as much.</p>
-    <p>So far, the experience has helped me improve my understanding of workflows, teamwork, office culture, and professional communication in a real shipping environment.</p>
-    <p>I'm still at the beginning, but the first month has already confirmed that this is a side of the industry I genuinely want to keep learning from.</p>
+  <div class="article-body">
+    <p>It has now been almost one month since I started working as a Werkstudent in the Chartering Department at German Tanker Shipping. That is still early, but it is already long enough to see the difference between learning chartering as a subject and watching it function as live commercial work.</p>
+    <p>One of the first things that became obvious is that chartering is not only about rates, fixtures, and market numbers. It is also about timing, clarity, and how quickly the right information reaches the right person. From the outside, the work can look purely transactional. From inside the desk, it is much more about attention and coordination than I expected.</p>
+    <p>I have also started to understand how much of the job depends on reading context correctly. A single number does not mean much on its own. It sits inside a wider picture: vessel position, market tone, commercial priorities, cargo timing, and the pace at which decisions need to be made. That wider picture is what makes the work interesting.</p>
+    <p>Another thing that stood out early is the role of relationships. Commercial shipping is not built only on arithmetic. Trust, responsiveness, and the quality of communication clearly matter. That does not replace the numbers, but it shapes how the numbers move through real business.</p>
+    <p>For me, the first weeks have mainly been useful because they turned abstract interest into something concrete. Concepts from university make more sense when they appear in a working environment, and the desk itself teaches things that are hard to get from theory alone. That is probably the biggest value of the experience so far.</p>
+    <p>I am still at the beginning, so I am not pretending to understand the market deeply yet. But the first month has already confirmed that this is the side of shipping I want to keep learning from — the point where freight markets, commercial judgment, and day-to-day execution meet.</p>
   </div>
 
-  <div class="post-foot">
-    <span class="post-foot-author">Yavuz Tursin · Bremen</span>
-    <a href="../index.html#posts" class="post-back-link">← Back to writing</a>
+  <div class="article-footer">
+    <span class="article-signoff">Yavuz Tursin · Bremen</span>
+    <a href="../index.html#notes">Back to market notes →</a>
   </div>
-</div>
-
+</main>
 </body>
 </html>
