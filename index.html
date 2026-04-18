@@ -673,72 +673,70 @@
       .exp-title {
         text-wrap: pretty;
       }
-      .route-ornament { display: none; }
     }
-
-    @media (min-width: 1180px) {
-
     .route-ornament {
-      position: fixed;
-      top: 108px;
-      right: clamp(18px, 2.4vw, 34px);
-      width: 42px;
-      height: calc(100vh - 156px);
-      pointer-events: none;
-      z-index: 8;
-      opacity: 0.9;
-    }
-    .route-line {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 21px;
-      width: 1px;
-      background: linear-gradient(
-        to bottom,
-        rgba(132,125,114,0.16) 0%,
-        rgba(132,125,114,0.42) 18%,
-        rgba(132,125,114,0.28) 82%,
-        rgba(132,125,114,0.12) 100%
-      );
-    }
-    .route-dot {
-      position: absolute;
-      left: 17px;
-      width: 9px;
-      height: 9px;
-      border: 1px solid rgba(35,66,95,0.22);
-      border-radius: 999px;
-      background: color-mix(in srgb, var(--paper) 82%, white);
-      box-shadow: 0 0 0 4px rgba(243,239,230,0.65);
-    }
-    .route-dot.dot-1, .route-dot.dot-2, .route-dot.dot-3 { top: 0; }
-    .route-ship {
-      position: absolute;
-      left: 9px;
-      top: 22%;
-      width: 26px;
-      height: 26px;
-      color: rgba(35,66,95,0.72);
-      filter: drop-shadow(0 2px 4px rgba(23,20,17,0.06));
-      transition: transform 0.16s linear;
-      will-change: transform;
-    }
-    .route-ship svg {
-      display: block;
-      width: 100%;
-      height: 100%;
+      display: none;
     }
 
+    @media (min-width: 1280px) {
+      .route-ornament {
+        display: block;
+        position: fixed;
+        top: 108px;
+        right: max(18px, calc((100vw - min(1120px, 100vw - 48px)) / 2 - 34px));
+        width: 24px;
+        height: calc(100vh - 156px);
+        pointer-events: none;
+        z-index: 3;
+        opacity: 0.8;
+      }
+      .route-line {
+        position: absolute;
+        inset: 0 auto 0 11px;
+        width: 1px;
+        background: linear-gradient(to bottom, rgba(150,140,124,0.16), rgba(150,140,124,0.46), rgba(150,140,124,0.16));
+      }
+      .route-dot {
+        position: absolute;
+        left: 7px;
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(29,53,80,0.2);
+        background: var(--paper);
+        box-shadow: 0 0 0 4px rgba(235,230,217,0.9);
+        transform: translateY(-50%);
+      }
+      .route-ship {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 22px;
+        height: 22px;
+        color: rgba(29,53,80,0.72);
+        transform: translateY(0);
+        will-change: transform;
+      }
+      .route-ship svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
     }
+
   </style>
 </head>
+
 <body>
   <div class="route-ornament" aria-hidden="true">
     <span class="route-line"></span>
-    <span class="route-dot dot-1"></span>
-    <span class="route-dot dot-2"></span>
-    <span class="route-dot dot-3"></span>
+    <span class="route-dot" data-track="about"></span>
+    <span class="route-dot" data-track="writing"></span>
+    <span class="route-dot" data-track="experience"></span>
+    <span class="route-dot" data-track="focus"></span>
+    <span class="route-dot" data-track="direction"></span>
+    <span class="route-dot" data-track="gallery"></span>
+    <span class="route-dot" data-track="contact"></span>
     <div class="route-ship" id="routeShip">
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M14 39.5H47.5L42.8 45.5H20.2L14 39.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
@@ -746,10 +744,10 @@
         <path d="M35.5 39.5V24H41V39.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
         <path d="M27.8 31.8H32.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
         <path d="M38.2 27.8H41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M16 49C19 47.5 21.5 47 24 47C26.5 47 29 47.5 32 49C35 50.5 37.5 51 40 51C42.5 51 45 50.5 48 49" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
     </div>
   </div>
+
   <header class="site-header">
     <div class="shell site-header-inner">
       <a href="#top" class="site-name">Yavuz Tursin</a>
@@ -770,7 +768,7 @@
       <h1 class="hero-name" id="hero-name">Yavuz <em>Tursin</em></h1>
       <div class="hero-grid">
         <div>
-          <p class="hero-tagline">Tanker chartering, freight markets, and a disciplined start in commercial shipping.</p>
+          <p class="hero-tagline">Commercial shipping, shipbroking, freight markets, and a strong interest in tanker trade.</p>
           <p class="hero-summary">I work in chartering at German Tanker Shipping and study Shipping &amp; Chartering at Hochschule Bremen. This website reflects my position, interest, research, and thoughts in the Maritime Industry as well as my personal touch.</p>
         </div>
         <p class="hero-credentials">
@@ -783,11 +781,11 @@
 
     <section id="about" class="shell" aria-labelledby="about-title">
       <p class="section-label rv">About</p>
-      <h2 class="section-title rv d1" id="about-title">Focused early-career work in tanker shipping.</h2>
+      <h2 class="section-title rv d1" id="about-title">An early-career path in commercial shipping.</h2>
       <div class="about-grid rv d2">
         <div class="about-copy">
-          <p class="about-p">Originally from Türkiye, now based in Bremen. I am building depth in tanker shipping from two sides at once: live desk exposure through work and industry-specific training through university.</p>
-          <p class="about-p">My focus is narrow on purpose. I care about tanker markets, freight economics, and how commercial decisions actually get made. I would rather understand one segment properly than try to look broad too early.</p>
+          <p class="about-p">Originally from Türkiye, now based in Bremen. I am building my path in commercial shipping from two sides at once: live desk exposure through work and industry-specific training through university.</p>
+          <p class="about-p">My strongest interests are in commercial shipping and, over time, shipbroking. Tankers remain a real part of that because I am very interested in the oil economy, energy markets, and the way those forces move freight. At the same time, I do not want to box myself into one niche too early when the wider commercial side of shipping matters just as much.</p>
         </div>
         <figure class="about-photo-wrap">
           <img class="about-photo" src="photo.jpg" alt="Portrait of Yavuz Tursin">
@@ -799,13 +797,13 @@
     <section id="writing" class="shell" aria-labelledby="writing-title">
       <p class="section-label rv">Writing</p>
       <h2 class="section-title rv d1" id="writing-title">Professional articles and personal reflections.</h2>
-      <p class="section-intro rv d2">Writing should be visible here, not buried. Articles cover market and industry topics. Reflections are more personal records of what the work is teaching me directly.</p>
+      <p class="section-intro rv d2">Writing should be visible here, not buried. Articles cover professional and industry topics. Reflections are more personal records of what the work is teaching me directly.</p>
 
       <div class="writing-grid rv d2">
         <div class="writing-column">
           <p class="writing-kind">Articles</p>
           <h3 class="writing-column-title">Professional and market-focused writing.</h3>
-          <p class="writing-column-intro">This side is for industry topics, commercial logic, and more structured articles. The next real topic I want to publish is the Arctic Route.</p>
+          <p class="writing-column-intro">This side is for industry topics, commercial logic, and more structured articles. The next real topic I want to publish is the Arctic Route, but over time this section will also include broader commercial shipping and shipbroking-related pieces.</p>
 
           <div class="writing-card" aria-label="Planned professional article">
             <span class="writing-status planned">Planned next</span>
@@ -867,23 +865,23 @@
     <section id="focus" class="shell" aria-labelledby="focus-title">
       <p class="section-label rv">Focus Areas</p>
       <h2 class="section-title rv d1" id="focus-title">What I read and track.</h2>
-      <p class="section-intro rv d2">The main themes I keep coming back to across commercial shipping, freight markets, shipbroking, and selected tanker and energy topics.</p>
+      <p class="section-intro rv d2">A set of themes I keep returning to across commercial shipping, shipbroking, tanker markets, and the wider forces that shape them.</p>
 
       <ol class="focus-list rv d2">
         <li>
           <span class="focus-num">01</span>
-          <span class="focus-name">Product tanker freight</span>
-          <span class="focus-note">MR and LR segments. How refinery runs and arbitrage economics show up in rates.</span>
+          <span class="focus-name">Commercial shipping markets</span>
+          <span class="focus-note">How freight markets behave across segments, and how commercial logic shapes decisions.</span>
         </li>
         <li>
           <span class="focus-num">02</span>
-          <span class="focus-name">Crude tanker cycles</span>
-          <span class="focus-note">VLCC, Suezmax, Aframax. Why rate cycles form the way they do.</span>
+          <span class="focus-name">Shipbroking and chartering</span>
+          <span class="focus-note">How cargo, tonnage, timing, and relationships come together on the commercial side of shipping.</span>
         </li>
         <li>
           <span class="focus-num">03</span>
-          <span class="focus-name">Tonne-mile dynamics</span>
-          <span class="focus-note">Red Sea, Panama, and other route disruptions. How rerouted trade reshapes fleet utilisation.</span>
+          <span class="focus-name">Freight and route dynamics</span>
+          <span class="focus-note">How disruptions, rerouting, and distance changes reshape utilisation and market balance.</span>
         </li>
         <li>
           <span class="focus-num">04</span>
@@ -892,18 +890,18 @@
         </li>
         <li>
           <span class="focus-num">05</span>
-          <span class="focus-name">Refinery geography and arbitrage</span>
-          <span class="focus-note">Where margin forces cargoes to move, and how that shows up on the freight side.</span>
+          <span class="focus-name">Energy markets and oil economy</span>
+          <span class="focus-note">How oil flows, refinery geography, and energy economics connect back to shipping demand.</span>
         </li>
         <li>
           <span class="focus-num">06</span>
-          <span class="focus-name">Fleet supply</span>
-          <span class="focus-note">Orderbook, scrapping, yard capacity, and age profile. The tonnage side of the cycle.</span>
+          <span class="focus-name">Fleet supply and tonnage</span>
+          <span class="focus-note">Orderbook, scrapping, yard capacity, and age profile across shipping markets.</span>
         </li>
         <li>
           <span class="focus-num">07</span>
           <span class="focus-name">Voyage economics and charter-party logic</span>
-          <span class="focus-note">TCEs, bunkers, canal and port costs, and the arithmetic behind each fixture.</span>
+          <span class="focus-note">TCEs, bunkers, port costs, and the contractual logic behind commercial decisions.</span>
         </li>
       </ol>
     </section>
@@ -911,33 +909,36 @@
     <section id="direction" class="shell" aria-labelledby="direction-title">
       <p class="section-label rv">Direction</p>
       <h2 class="section-title rv d1" id="direction-title">How I am approaching the industry.</h2>
-      <p class="section-intro rv d2">This section stays because the approach matters — but it should stay grounded in what actually improves long-term commercial judgment.</p>
+      <p class="section-intro rv d2">A few simple ideas behind how I want to grow in the industry.</p>
 
       <ol class="direction-list rv d2">
-      <li>
-        <h3>Stay curious, but stay grounded.</h3>
-        <p>I like the commercial side of shipping because it combines markets, timing, people, and judgment. The more I learn, the more I see how much depth there is behind what looks simple from the outside.</p>
-      </li>
-      <li>
-        <h3>Keep one foot in real work.</h3>
-        <p>Desk exposure matters to me because it turns theory into something concrete. Things make more sense when you can connect them to actual workflow, actual timing, and actual decisions.</p>
-      </li>
-      <li>
-        <h3>Write to make ideas clearer.</h3>
-        <p>Some pieces on this site will be more professional, others more personal. Both matter. Writing helps me sort out what I really think and what I still need to understand better.</p>
-      </li>
-      <li>
-        <h3>Stay open within shipping.</h3>
-        <p>Tankers are a real interest of mine, especially because of the oil and energy side, but I do not want to box myself in too early. Shipbroking and the wider commercial side of shipping matter just as much to me.</p>
-      </li>
+        <li>
+          <span class="direction-num">01</span>
+          <h3 class="direction-heading">Stay curious, but stay grounded.</h3>
+          <p class="direction-copy">The more I learn about shipping, the more I see how much depth sits behind work that can look simple from the outside. That is part of what keeps me interested.</p>
+        </li>
+        <li>
+          <span class="direction-num">02</span>
+          <h3 class="direction-heading">Keep one foot in real work.</h3>
+          <p class="direction-copy">Things make more sense when they connect to actual workflow, actual timing, and actual commercial decisions. That is why desk exposure matters to me so much.</p>
+        </li>
+        <li>
+          <span class="direction-num">03</span>
+          <h3 class="direction-heading">Use writing to make ideas clearer.</h3>
+          <p class="direction-copy">Some writing here will be more professional, some more personal. Both are useful. Putting thoughts into words is still one of the fastest ways to see what I really understand and what I still need to work on.</p>
+        </li>
+        <li>
+          <span class="direction-num">04</span>
+          <h3 class="direction-heading">Stay open within shipping.</h3>
+          <p class="direction-copy">Tankers are a genuine interest of mine, especially because of the oil and energy side, but I do not want to narrow myself too early. Shipbroking and the wider commercial side of shipping matter just as much to me.</p>
+        </li>
 </ol>
     </section>
 
     <section id="gallery" class="shell" aria-labelledby="gallery-title">
       <p class="section-label rv">Gallery</p>
       <h2 class="section-title rv d1" id="gallery-title">A selective visual log.</h2>
-      <p class="section-intro rv d2"></p>
-
+      
       <div class="gallery-grid rv d2">
         <figure class="gallery-card">
           <img class="gallery-image" src="images/gallery/rotterdam-vessel.jpg" alt="Vessel artwork photographed at the Maritime Museum Rotterdam">
@@ -1016,40 +1017,33 @@
     });
 
     (function () {
-      var ship = document.getElementById('routeShip');
       var ornament = document.querySelector('.route-ornament');
-      if (!ship || !ornament || window.matchMedia('(max-width: 1179px)').matches) return;
+      var ship = document.getElementById('routeShip');
+      if (!ornament || !ship || window.innerWidth < 1280) return;
 
-      var ticking = false;
-      var dots = [
-        document.querySelector('.route-dot.dot-1'),
-        document.querySelector('.route-dot.dot-2'),
-        document.querySelector('.route-dot.dot-3')
-      ];
-      var trackedSections = [
-        document.getElementById('about'),
-        document.getElementById('writing'),
-        document.getElementById('focus')
-      ];
+      var dots = Array.prototype.slice.call(document.querySelectorAll('.route-dot[data-track]'));
 
       function placeDots() {
-        var docHeight = Math.max(1, document.documentElement.scrollHeight);
-        var track = Math.max(0, ornament.clientHeight - 9);
-        trackedSections.forEach(function (section, i) {
-          if (!section || !dots[i]) return;
+        var maxTrack = Math.max(0, ornament.clientHeight - 10);
+        var scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        dots.forEach(function (dot) {
+          var id = dot.getAttribute('data-track');
+          var section = document.getElementById(id);
+          if (!section) return;
           var sectionCenter = section.offsetTop + (section.offsetHeight / 2);
-          var y = Math.max(0, Math.min(track, (sectionCenter / docHeight) * ornament.clientHeight));
-          dots[i].style.top = y + 'px';
+          var y = (sectionCenter / Math.max(document.documentElement.scrollHeight, 1)) * ornament.clientHeight;
+          y = Math.max(8, Math.min(maxTrack, y));
+          dot.style.top = y + 'px';
         });
       }
 
+      var ticking = false;
       function updateShip() {
         var scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
         var progress = Math.min(1, Math.max(0, window.scrollY / scrollable));
-        var track = Math.max(0, ornament.clientHeight - ship.offsetHeight - 12);
-        var drift = Math.sin(progress * Math.PI * 2.1) * 2.5;
-        var rotate = Math.sin(progress * Math.PI * 1.15) * 2.2;
-        ship.style.transform = 'translateY(' + (progress * track) + 'px) translateX(' + drift + 'px) rotate(' + rotate + 'deg)';
+        var travel = Math.max(0, ornament.clientHeight - ship.offsetHeight);
+        var drift = Math.sin(progress * Math.PI * 2) * 1.8;
+        ship.style.transform = 'translateY(' + (progress * travel) + 'px) translateX(' + drift + 'px)';
         ticking = false;
       }
 
@@ -1062,10 +1056,21 @@
 
       placeDots();
       updateShip();
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1280) {
+          placeDots();
+          updateShip();
+        }
+      });
+      window.addEventListener('load', function () {
+        if (window.innerWidth >= 1280) {
+          placeDots();
+          updateShip();
+        }
+      });
       window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', function () { placeDots(); onScroll(); });
-      window.addEventListener('load', function () { placeDots(); onScroll(); });
     })();
+
   </script>
 </body>
 </html>
