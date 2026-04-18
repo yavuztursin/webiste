@@ -729,12 +729,12 @@
       position: fixed;
       top: 72px;
       left: 50%;
-      width: min(46vw, 760px);
-      height: min(34vw, 420px);
-      transform: translateX(-6%);
+      width: min(48vw, 800px);
+      height: min(28vw, 330px);
+      transform: translateX(-4%);
       pointer-events: none;
       z-index: 0;
-      opacity: 0.12;
+      opacity: 0.10;
       overflow: visible;
     }
     .vessel-background svg {
@@ -797,77 +797,56 @@
 
 <body>
 
+  
   <div class="vessel-background" aria-hidden="true">
-    <svg viewBox="0 0 920 520" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 980 520" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <filter id="charcoalTexture" x="-20%" y="-20%" width="140%" height="140%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="7" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.55" xChannelSelector="R" yChannelSelector="G"/>
+          <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="1" seed="5" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.25" xChannelSelector="R" yChannelSelector="G"/>
         </filter>
       </defs>
 
-      <!-- soft wash -->
-      <path class="wash" d="M188 268c73-18 146-25 230-28 126-4 252 6 352 33-54 12-102 18-178 24-123 9-243 6-404-29z"/>
+      <!-- sharp wash -->
+      <path class="wash" d="M250 250L738 250L826 304L682 332L320 332L216 290Z"/>
+
+      <!-- upper silhouette -->
+      <path class="charcoal" d="M270 248H594L634 214H698L726 180H760L790 248"/>
 
       <!-- hull -->
-      <path class="charcoal" d="M124 286c26-1 73-1 123-2 89-2 233-4 336-4 43 0 85 0 120 2 11 17 21 37 28 55-56 9-160 15-281 18-147 4-278-3-377-20-4-18 13-35 51-49z"/>
-      <path class="charcoal-soft" d="M167 298c58-2 138-3 229-4 105-1 208 0 285 4"/>
-      <path class="charcoal-soft" d="M120 339c93 17 214 25 347 23 110-2 201-9 271-21"/>
+      <path class="charcoal" d="M176 286L244 250H792L854 286L804 318L302 318L220 310Z"/>
 
-      <!-- deck line -->
-      <path class="charcoal" d="M214 262c58-1 113-2 173-3 67-1 136-1 205 1 43 1 84 3 128 7"/>
+      <!-- chine / lower break lines -->
+      <path class="charcoal-soft" d="M228 300L302 286H804"/>
+      <path class="charcoal-soft" d="M256 266H778"/>
 
-      <!-- stern housing -->
-      <path class="charcoal" d="M605 257v-71h48v71"/>
-      <path class="charcoal" d="M653 257v-95h37v95"/>
-      <path class="charcoal-soft" d="M616 208h26"/>
-      <path class="charcoal-soft" d="M664 184h20"/>
+      <!-- superstructure -->
+      <path class="charcoal" d="M594 248V206H636V248"/>
+      <path class="charcoal" d="M636 248V176H690V248"/>
+      <path class="charcoal" d="M690 248V156H736V248"/>
 
-      <!-- bridge + mast -->
-      <path class="charcoal" d="M689 257v-118h30v118"/>
-      <path class="charcoal" d="M704 139v-32"/>
-      <path class="charcoal-soft" d="M699 121h11"/>
+      <!-- sharp mast -->
+      <path class="charcoal" d="M719 156V118"/>
+      <path class="charcoal-soft" d="M706 132H732"/>
 
-      <!-- manifold / deck structures -->
-      <path class="charcoal-soft" d="M310 259v-26"/>
-      <path class="charcoal-soft" d="M337 259v-20"/>
-      <path class="charcoal-soft" d="M366 259v-24"/>
-      <path class="charcoal-soft" d="M395 259v-18"/>
-      <path class="charcoal-soft" d="M425 259v-23"/>
-      <path class="charcoal-soft" d="M454 259v-21"/>
-      <path class="charcoal-soft" d="M483 259v-24"/>
-      <path class="charcoal-soft" d="M512 259v-18"/>
+      <!-- deck details -->
+      <path class="charcoal-soft" d="M334 248V222"/>
+      <path class="charcoal-soft" d="M378 248V228"/>
+      <path class="charcoal-soft" d="M424 248V220"/>
+      <path class="charcoal-soft" d="M470 248V226"/>
+      <path class="charcoal-soft" d="M516 248V221"/>
 
-      <!-- bow hint -->
-      <path class="charcoal" d="M121 286c10-21 34-40 65-52"/>
-      <path class="charcoal-soft" d="M144 303c9-16 24-30 44-41"/>
+      <!-- stern cut -->
+      <path class="charcoal-soft" d="M792 250L834 286"/>
 
-      <!-- waterline gesture -->
-      <path class="charcoal-soft" d="M96 382c29 9 57 13 82 13 26 0 47-4 69-11 18-6 34-10 56-11 23-1 43 2 66 9"/>
-      <path class="charcoal-soft" d="M421 380c24 7 45 10 65 10 23 0 42-4 64-11 18-6 36-10 59-10 22 0 43 4 66 12"/>
+      <!-- bow line -->
+      <path class="charcoal-soft" d="M244 250L176 286"/>
+
+      <!-- water gesture -->
+      <path class="charcoal-soft" d="M190 360L262 350L344 356L430 346L536 356L644 346L744 356L844 346"/>
+      <path class="charcoal-soft" d="M232 382L306 374L392 380L490 370L606 382L718 370L812 380"/>
     </svg>
   </div>
-
-  <div class="route-ornament" aria-hidden="true">
-    <span class="route-line"></span>
-    <span class="route-dot" data-track="about"></span>
-    <span class="route-dot" data-track="writing"></span>
-    <span class="route-dot" data-track="experience"></span>
-    <span class="route-dot" data-track="focus"></span>
-    <span class="route-dot" data-track="direction"></span>
-    <span class="route-dot" data-track="gallery"></span>
-    <span class="route-dot" data-track="contact"></span>
-    <div class="route-ship" id="routeShip">
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14 39.5H47.5L42.8 45.5H20.2L14 39.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-        <path d="M25 39.5V28.5H35.5V39.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-        <path d="M35.5 39.5V24H41V39.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-        <path d="M27.8 31.8H32.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M38.2 27.8H41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </div>
-  </div>
-
   <header class="site-header">
     <div class="shell site-header-inner">
       <a href="#top" class="site-name">Yavuz Tursin</a>
