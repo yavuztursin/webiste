@@ -712,9 +712,7 @@
       background: color-mix(in srgb, var(--paper) 82%, white);
       box-shadow: 0 0 0 4px rgba(243,239,230,0.65);
     }
-    .route-dot.dot-1 { top: 10%; }
-    .route-dot.dot-2 { top: 46%; }
-    .route-dot.dot-3 { top: 82%; }
+    .route-dot.dot-1, .route-dot.dot-2, .route-dot.dot-3 { top: 0; }
     .route-ship {
       position: absolute;
       left: 9px;
@@ -773,7 +771,7 @@
       <div class="hero-grid">
         <div>
           <p class="hero-tagline">Tanker chartering, freight markets, and a disciplined start in commercial shipping.</p>
-          <p class="hero-summary">I work in chartering at German Tanker Shipping and study Shipping &amp; Chartering at Hochschule Bremen. This site separates my professional articles from my personal reflections and keeps a public record of how I am learning the tanker market.</p>
+          <p class="hero-summary">I work in chartering at German Tanker Shipping and study Shipping &amp; Chartering at Hochschule Bremen. This website reflects my position, interest, research, and thoughts in the Maritime Industry as well as my personal touch.</p>
         </div>
         <p class="hero-credentials">
           Chartering Werkstudent at <strong>German Tanker Shipping</strong><br>
@@ -869,7 +867,7 @@
     <section id="focus" class="shell" aria-labelledby="focus-title">
       <p class="section-label rv">Focus Areas</p>
       <h2 class="section-title rv d1" id="focus-title">What I read and track.</h2>
-      <p class="section-intro rv d2">A deliberately narrow set of themes: the commercial mechanics of tanker shipping and the market forces behind them.</p>
+      <p class="section-intro rv d2">The main themes I keep coming back to across commercial shipping, freight markets, shipbroking, and selected tanker and energy topics.</p>
 
       <ol class="focus-list rv d2">
         <li>
@@ -912,37 +910,33 @@
 
     <section id="direction" class="shell" aria-labelledby="direction-title">
       <p class="section-label rv">Direction</p>
-      <h2 class="section-title rv d1" id="direction-title">How I am approaching the work.</h2>
+      <h2 class="section-title rv d1" id="direction-title">How I am approaching the industry.</h2>
       <p class="section-intro rv d2">This section stays because the approach matters — but it should stay grounded in what actually improves long-term commercial judgment.</p>
 
       <ol class="direction-list rv d2">
-        <li>
-          <span class="direction-num">01</span>
-          <h3 class="direction-heading">Depth before breadth.</h3>
-          <p class="direction-copy">Shipping rewards real understanding more than fast résumé building. I would rather get depth in tanker markets than move too quickly and stay superficial.</p>
-        </li>
-        <li>
-          <span class="direction-num">02</span>
-          <h3 class="direction-heading">Connect desk work to market structure.</h3>
-          <p class="direction-copy">Rates, utilisation, and fixture decisions are not isolated desk numbers. They come from trade flows, refinery geography, fleet supply, weather, and disruptions. The work is learning to connect those layers properly.</p>
-        </li>
-        <li>
-          <span class="direction-num">03</span>
-          <h3 class="direction-heading">Use writing as a working tool.</h3>
-          <p class="direction-copy">Writing is useful because unclear thinking becomes obvious on the page. That is why this site separates professional articles from personal reflections instead of blending everything together.</p>
-        </li>
-        <li>
-          <span class="direction-num">04</span>
-          <h3 class="direction-heading">Stay close to live commercial work.</h3>
-          <p class="direction-copy">The fastest learning in shipping happens where cargoes, tonnage, and decisions are live. That is the environment I want to stay close to while building experience.</p>
-        </li>
-      </ol>
+      <li>
+        <h3>Stay curious, but stay grounded.</h3>
+        <p>I like the commercial side of shipping because it combines markets, timing, people, and judgment. The more I learn, the more I see how much depth there is behind what looks simple from the outside.</p>
+      </li>
+      <li>
+        <h3>Keep one foot in real work.</h3>
+        <p>Desk exposure matters to me because it turns theory into something concrete. Things make more sense when you can connect them to actual workflow, actual timing, and actual decisions.</p>
+      </li>
+      <li>
+        <h3>Write to make ideas clearer.</h3>
+        <p>Some pieces on this site will be more professional, others more personal. Both matter. Writing helps me sort out what I really think and what I still need to understand better.</p>
+      </li>
+      <li>
+        <h3>Stay open within shipping.</h3>
+        <p>Tankers are a real interest of mine, especially because of the oil and energy side, but I do not want to box myself in too early. Shipbroking and the wider commercial side of shipping matter just as much to me.</p>
+      </li>
+</ol>
     </section>
 
     <section id="gallery" class="shell" aria-labelledby="gallery-title">
       <p class="section-label rv">Gallery</p>
       <h2 class="section-title rv d1" id="gallery-title">A selective visual log.</h2>
-      <p class="section-intro rv d2">This section stays selective. The point is not random images, but maritime pictures worth keeping with a short note underneath.</p>
+      <p class="section-intro rv d2"></p>
 
       <div class="gallery-grid rv d2">
         <figure class="gallery-card">
@@ -1027,6 +1021,28 @@
       if (!ship || !ornament || window.matchMedia('(max-width: 1179px)').matches) return;
 
       var ticking = false;
+      var dots = [
+        document.querySelector('.route-dot.dot-1'),
+        document.querySelector('.route-dot.dot-2'),
+        document.querySelector('.route-dot.dot-3')
+      ];
+      var trackedSections = [
+        document.getElementById('about'),
+        document.getElementById('writing'),
+        document.getElementById('focus')
+      ];
+
+      function placeDots() {
+        var docHeight = Math.max(1, document.documentElement.scrollHeight);
+        var track = Math.max(0, ornament.clientHeight - 9);
+        trackedSections.forEach(function (section, i) {
+          if (!section || !dots[i]) return;
+          var sectionCenter = section.offsetTop + (section.offsetHeight / 2);
+          var y = Math.max(0, Math.min(track, (sectionCenter / docHeight) * ornament.clientHeight));
+          dots[i].style.top = y + 'px';
+        });
+      }
+
       function updateShip() {
         var scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
         var progress = Math.min(1, Math.max(0, window.scrollY / scrollable));
@@ -1044,9 +1060,11 @@
         }
       }
 
+      placeDots();
       updateShip();
       window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
+      window.addEventListener('resize', function () { placeDots(); onScroll(); });
+      window.addEventListener('load', function () { placeDots(); onScroll(); });
     })();
   </script>
 </body>
