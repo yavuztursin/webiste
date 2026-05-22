@@ -30,7 +30,7 @@
     "worksFor": { "@type": "Organization", "name": "German Tanker Shipping GmbH & Co. KG" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "Hochschule Bremen" },
     "address": { "@type": "PostalAddress", "addressLocality": "Bremen", "addressCountry": "DE" },
-    "email": "contact@yavuztursin.com",
+    "email": "yavuztursin@gmail.com",
     "sameAs": ["https://linkedin.com/in/yavuztursin"]
   }
   </script>
@@ -587,12 +587,23 @@
         background: var(--paper);
       }
       .site-header-inner {
-        min-height: unset;
-        padding: 16px 0;
+        flex-direction: column;
         align-items: flex-start;
+        gap: 12px;
+        min-height: unset;
+        padding: 14px 0 18px;
       }
       .site-nav {
-        display: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .site-nav a {
+        font-size: 10.5px;
+        letter-spacing: 0.08em;
+        padding-bottom: 0;
       }
       .hero {
         padding-top: 56px;
@@ -673,54 +684,8 @@
       .exp-title {
         text-wrap: pretty;
       }
-    }
-    .route-ornament {
-      display: none;
-    }
-
-    @media (min-width: 1280px) {
-      .route-ornament {
-        display: block;
-        position: fixed;
-        top: 108px;
-        right: max(18px, calc((100vw - min(1120px, 100vw - 48px)) / 2 - 34px));
-        width: 24px;
-        height: calc(100vh - 156px);
-        pointer-events: none;
-        z-index: 3;
-        opacity: 0.35;
-      }
-      .route-line {
-        position: absolute;
-        inset: 0 auto 0 11px;
-        width: 1px;
-        background: linear-gradient(to bottom, rgba(150,140,124,0.16), rgba(150,140,124,0.46), rgba(150,140,124,0.16));
-      }
-      .route-dot {
-        position: absolute;
-        left: 7px;
-        width: 9px;
-        height: 9px;
-        border-radius: 999px;
-        border: 1px solid rgba(29,53,80,0.2);
-        background: var(--paper);
-        box-shadow: 0 0 0 4px rgba(235,230,217,0.9);
-        transform: translateY(-50%);
-      }
-      .route-ship {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 22px;
-        height: 22px;
-        color: rgba(29,53,80,0.52);
-        transform: translateY(0);
-        will-change: transform;
-      }
-      .route-ship svg {
-        display: block;
-        width: 100%;
-        height: 100%;
+      .site-nav {
+        gap: 8px 14px;
       }
     }
 
@@ -739,7 +704,6 @@
       background-size: contain;
       background-position: center center;
       filter: grayscale(1) contrast(1.02) brightness(0.82);
-      
     }
 
     main, .site-header, .site-footer {
@@ -777,15 +741,15 @@
 
 <body>
   <div class="vessel-background" aria-hidden="true"></div>
-<header class="site-header">
+  <header class="site-header">
     <div class="shell site-header-inner">
       <a href="#top" class="site-name">Yavuz Tursin</a>
       <nav class="site-nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#writing">Writing</a>
         <a href="#experience">Experience</a>
-        <a href="#focus">Focus Areas</a>
-        <a href="#direction">Current Interests</a>
+        <a href="#focus">Focus</a>
+        <a href="#direction">Interests</a>
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -798,7 +762,7 @@
       <div class="hero-grid">
         <div>
           <p class="hero-tagline">Commercial shipping, chartering, shipbroking, and freight markets.</p>
-          <p class="hero-summary">I work in chartering at German Tanker Shipping and study Shipping &amp; Chartering at Hochschule Bremen. I use this site to publish articles, personal reflections, and selected maritime photos.</p>
+          <p class="hero-summary">I work in chartering at German Tanker Shipping and study Shipping &amp; Chartering at Hochschule Bremen. I use this site to share personal reflections and selected maritime photos.</p>
         </div>
         <p class="hero-credentials">
           Chartering Werkstudent at <strong>German Tanker Shipping</strong><br>
@@ -825,33 +789,14 @@
 
     <section id="writing" class="shell" aria-labelledby="writing-title">
       <p class="section-label rv">Writing</p>
-      <h2 class="section-title rv d1" id="writing-title">Articles and reflections.</h2>
-      <p class="section-intro rv d2">I want the writing on this site to be easy to find. Articles are for industry and market topics. Reflections are more personal and closer to what I am learning directly from work and study.</p>
+      <h2 class="section-title rv d1" id="writing-title">Writing from work and study.</h2>
+      <p class="section-intro rv d2">I use this site mainly to record what I am learning from work, study, and the commercial side of shipping. At the moment, the writing here is focused on personal reflections rather than professional articles.</p>
 
       <div class="writing-grid rv d2">
         <div class="writing-column">
-          <p class="writing-kind">Articles</p>
-          <h3 class="writing-column-title">Professional writing.</h3>
-          <p class="writing-column-intro">This section is for industry topics, market questions, and more structured articles. The next topic I want to publish is the Arctic Route. Later I want to add more pieces on commercial shipping, shipbroking, tanker markets, and energy-related topics.</p>
-
-          <div class="writing-card" aria-label="Planned professional article">
-            <span class="writing-status planned">Planned next</span>
-            <h4 class="writing-card-title">The Arctic Route — strategic promise, commercial limits, and shipping reality</h4>
-            <p class="writing-card-copy">A piece on whether the route is really commercially important once cost, seasonality, infrastructure, and risk are looked at properly.</p>
-            <div class="writing-meta">
-              <span>Topic</span>
-              <span>Arctic Route</span>
-              <span>Professional Article</span>
-            </div>
-          </div>
-
-          <div class="writing-empty">Published articles will appear here.</div>
-        </div>
-
-        <div class="writing-column">
           <p class="writing-kind">Reflections</p>
           <h3 class="writing-column-title">Personal reflections.</h3>
-          <p class="writing-column-intro">This section is for personal reflections. These pieces are not meant to sound polished. They are there to record what the work feels like while I am still early in it.</p>
+          <p class="writing-column-intro">These pieces are more direct and personal, written to record what I am learning while I am still early in the industry.</p>
 
           <a href="posts/first-month-chartering.html" class="writing-card" aria-label="Read reflection on first month in chartering">
             <span class="writing-status">Published</span>
@@ -863,6 +808,14 @@
               <span>German Tanker Shipping</span>
             </div>
           </a>
+        </div>
+
+        <div class="writing-column">
+          <p class="writing-kind">Articles</p>
+          <h3 class="writing-column-title">Professional articles.</h3>
+          <p class="writing-column-intro">Professional articles may be added later, once I have the time and enough substance to write them properly.</p>
+
+          <div class="writing-empty">No professional articles published at the moment.</div>
         </div>
       </div>
     </section>
@@ -961,7 +914,7 @@
           <h3 class="direction-heading">Paying attention to markets, not just job titles.</h3>
           <p class="direction-copy">What matters to me is learning how the commercial side of shipping really works over time, not just trying to look impressive too early.</p>
         </li>
-</ol>
+      </ol>
     </section>
 
     <section id="gallery" class="shell" aria-labelledby="gallery-title">
@@ -985,8 +938,8 @@
       <p class="contact-intro rv d2">Open to serious conversations about shipping, chartering, shipbroking, freight markets, and related opportunities.</p>
 
       <div class="contact-actions rv d2">
-        <a href="mailto:contact@yavuztursin.com" class="button-link" aria-label="Email Yavuz Tursin">Email</a>
-        <a href="mailto:contact@yavuztursin.com?subject=CV%20Request" class="button-link secondary" aria-label="Request CV from Yavuz Tursin">Request CV</a>
+        <a href="mailto:yavuztursin@gmail.com" class="button-link" aria-label="Email Yavuz Tursin">Email</a>
+        <a href="mailto:yavuztursin@gmail.com?subject=CV%20Request" class="button-link secondary" aria-label="Request CV from Yavuz Tursin">Request CV</a>
       </div>
 
       <ul class="contact-links rv d2">
@@ -997,7 +950,7 @@
         </li>
         <li>
           <span class="k">Email</span>
-          <a class="v" href="mailto:contact@yavuztursin.com">contact@yavuztursin.com</a>
+          <a class="v" href="mailto:yavuztursin@gmail.com">yavuztursin@gmail.com</a>
           <span class="a">Mail</span>
         </li>
         <li>
@@ -1044,62 +997,6 @@
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
-
-    (function () {
-      var ornament = document.querySelector('.route-ornament');
-      var ship = document.getElementById('routeShip');
-      if (!ornament || !ship || window.innerWidth < 1280) return;
-
-      var dots = Array.prototype.slice.call(document.querySelectorAll('.route-dot[data-track]'));
-
-      function placeDots() {
-        var maxTrack = Math.max(0, ornament.clientHeight - 10);
-        var scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-        dots.forEach(function (dot) {
-          var id = dot.getAttribute('data-track');
-          var section = document.getElementById(id);
-          if (!section) return;
-          var sectionCenter = section.offsetTop + (section.offsetHeight / 2);
-          var y = (sectionCenter / Math.max(document.documentElement.scrollHeight, 1)) * ornament.clientHeight;
-          y = Math.max(8, Math.min(maxTrack, y));
-          dot.style.top = y + 'px';
-        });
-      }
-
-      var ticking = false;
-      function updateShip() {
-        var scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-        var progress = Math.min(1, Math.max(0, window.scrollY / scrollable));
-        var travel = Math.max(0, ornament.clientHeight - ship.offsetHeight);
-        var drift = Math.sin(progress * Math.PI * 2) * 1.8;
-        ship.style.transform = 'translateY(' + (progress * travel) + 'px) translateX(' + drift + 'px)';
-        ticking = false;
-      }
-
-      function onScroll() {
-        if (!ticking) {
-          window.requestAnimationFrame(updateShip);
-          ticking = true;
-        }
-      }
-
-      placeDots();
-      updateShip();
-      window.addEventListener('resize', function () {
-        if (window.innerWidth >= 1280) {
-          placeDots();
-          updateShip();
-        }
-      });
-      window.addEventListener('load', function () {
-        if (window.innerWidth >= 1280) {
-          placeDots();
-          updateShip();
-        }
-      });
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
-
   </script>
 </body>
 </html>
