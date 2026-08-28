@@ -7,14 +7,25 @@
   <meta name="description" content="Yavuz Tursin — commercial shipping, chartering, shipbroking, and freight markets. Based in Bremen, working at German Tanker Shipping and studying Shipping & Chartering at Hochschule Bremen.">
   <meta name="author" content="Yavuz Tursin">
   <meta name="theme-color" content="#f3efe6">
+  <link rel="canonical" href="https://yavuztursin.com/">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
 
   <meta property="og:title" content="Yavuz Tursin — Commercial Shipping, Chartering & Shipbroking">
   <meta property="og:description" content="Based in Bremen, working in chartering at German Tanker Shipping and studying Shipping & Chartering at Hochschule Bremen.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yavuztursin.com/">
+  <meta property="og:image" content="https://yavuztursin.com/photo.jpg">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Yavuz Tursin — Commercial Shipping, Chartering & Shipbroking">
   <meta name="twitter:description" content="Based in Bremen, working in chartering at German Tanker Shipping and studying Shipping & Chartering at Hochschule Bremen.">
+  <meta name="twitter:image" content="https://yavuztursin.com/photo.jpg">
+
+  <!-- Analytics: no provider configured yet. Drop a privacy-friendly snippet
+       (Plausible/Fathom/GoatCounter) or GA4 gtag.js here when ready. -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,13 +64,32 @@
     a { color: inherit; text-decoration: none; }
     a:focus-visible { outline: 2px solid #23425f; outline-offset: 3px; border-radius: 2px; }
 
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      left: 12px;
+      z-index: 50;
+      background: #171411;
+      color: #f3efe6;
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 12px 18px;
+      border-radius: 8px;
+      transition: top .15s ease;
+    }
+    .skip-link:focus {
+      top: 12px;
+    }
+
     :root {
       --paper: #f3efe6;
       --paper-strong: #ece6da;
       --paper-soft: #f7f3ec;
       --ink: #171411;
       --ink-soft: #514c46;
-      --ink-muted: #847d72;
+      --ink-muted: #6e675c;
       --rule: #d6cebf;
       --rule-strong: #c5bca9;
       --accent: #23425f;
@@ -171,6 +201,7 @@
     section {
       padding: clamp(64px, 8vw, 108px) 0 clamp(24px, 3vw, 36px);
       border-top: 1px solid var(--rule);
+      scroll-margin-top: 84px;
     }
     .section-label {
       font-family: var(--mono);
@@ -224,6 +255,7 @@
     }
     .about-photo {
       width: 100%;
+      height: auto;
       aspect-ratio: 4 / 5;
       object-fit: cover;
       object-position: center 25%;
@@ -532,6 +564,82 @@
       color: var(--ink-muted);
     }
 
+    .contact-form-wrap {
+      max-width: 560px;
+      margin-top: clamp(32px, 5vw, 48px);
+      background: var(--paper-soft);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: clamp(22px, 4vw, 32px);
+      box-shadow: var(--shadow);
+    }
+    .contact-form-title {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2vw, 24px);
+      font-weight: 400;
+      letter-spacing: -0.018em;
+      margin-bottom: 8px;
+    }
+    .contact-form-note {
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+    .form-row {
+      margin-bottom: 18px;
+    }
+    .form-row label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 8px;
+    }
+    .form-row input,
+    .form-row textarea {
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--ink);
+      background: #fffdfa;
+      border: 1px solid var(--rule-strong);
+      border-radius: 10px;
+      padding: 11px 14px;
+      resize: vertical;
+    }
+    .form-row input:focus-visible,
+    .form-row textarea:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .form-row input[aria-invalid="true"],
+    .form-row textarea[aria-invalid="true"] {
+      border-color: #a4433a;
+    }
+    .form-error {
+      display: block;
+      min-height: 1.4em;
+      margin-top: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.02em;
+      color: #a4433a;
+    }
+    .contact-form button.button-link {
+      cursor: pointer;
+      border: 1px solid var(--ink);
+    }
+    .form-status {
+      margin-top: 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+    }
+
     .site-footer {
       margin-top: clamp(64px, 8vw, 100px);
       padding: 26px 0 36px;
@@ -550,6 +658,11 @@
       color: var(--ink-muted);
     }
     .site-footer-inner a:hover { color: var(--ink); }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
 
     @keyframes rise {
       from { opacity: 0; transform: translateY(10px); }
@@ -581,29 +694,28 @@
     }
 
     @media (max-width: 760px) {
-      .site-header {
-        position: static;
-        backdrop-filter: none;
-        background: var(--paper);
-      }
       .site-header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        min-height: unset;
-        padding: 14px 0 18px;
+        min-height: 56px;
+        padding: 12px 0;
+        gap: 14px;
       }
       .site-nav {
         display: flex;
-        flex-wrap: wrap;
-        gap: 10px 16px;
-        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 16px;
         justify-content: flex-start;
+        -webkit-mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
+        mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
       }
+      .site-nav::-webkit-scrollbar { display: none; }
       .site-nav a {
         font-size: 10.5px;
         letter-spacing: 0.08em;
-        padding-bottom: 0;
+        padding-bottom: 2px;
+        flex: 0 0 auto;
       }
       .hero {
         padding-top: 56px;
@@ -737,9 +849,13 @@
     }
 
   </style>
+  <noscript>
+    <style>.rv { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="vessel-background" aria-hidden="true"></div>
   <header class="site-header">
     <div class="shell site-header-inner">
@@ -756,7 +872,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section id="top" class="hero shell" aria-labelledby="hero-name">
       <h1 class="hero-name" id="hero-name">Yavuz <em>Tursin</em></h1>
       <div class="hero-grid">
@@ -781,7 +897,7 @@
           <p class="about-p">My main long-term interest is the commercial side of shipping, especially shipbroking. Tankers are still a real interest for me because of their connection to oil, energy, and freight, but I want to stay open to the wider commercial side of the industry as well.</p>
         </div>
         <figure class="about-photo-wrap">
-          <img class="about-photo" src="photo.jpg" alt="Portrait of Yavuz Tursin">
+          <img class="about-photo" src="photo.jpg" alt="Portrait of Yavuz Tursin" width="1024" height="1536" decoding="async">
           <figcaption class="about-photo-caption">Yavuz Tursin · Bremen</figcaption>
         </figure>
       </div>
@@ -923,7 +1039,7 @@
       
       <div class="gallery-grid rv d2">
         <figure class="gallery-card">
-          <img class="gallery-image" src="images/gallery/rotterdam-vessel.jpg" alt="Vessel artwork photographed at the Maritime Museum Rotterdam">
+          <img class="gallery-image" src="images/gallery/rotterdam-vessel.jpg" alt="Vessel artwork photographed at the Maritime Museum Rotterdam" width="5712" height="4284" loading="lazy" decoding="async">
           <figcaption class="gallery-copy">
             <h3 class="gallery-title">Vessel artwork — Maritime Museum Rotterdam</h3>
             <p class="gallery-note">Photographed at the Maritime Museum Rotterdam.</p>
@@ -938,8 +1054,32 @@
       <p class="contact-intro rv d2">Open to serious conversations about shipping, chartering, shipbroking, freight markets, and related opportunities.</p>
 
       <div class="contact-actions rv d2">
-        <a href="mailto:yavuztursin@gmail.com" class="button-link" aria-label="Email Yavuz Tursin">Email</a>
-        <a href="mailto:yavuztursin@gmail.com?subject=CV%20Request" class="button-link secondary" aria-label="Request CV from Yavuz Tursin">Request CV</a>
+        <a href="mailto:yavuztursin@gmail.com?subject=Hello%20from%20yavuztursin.com" class="button-link" aria-label="Email Yavuz Tursin">Email</a>
+        <a href="mailto:yavuztursin@gmail.com?subject=CV%20Request%20%E2%80%94%20yavuztursin.com" class="button-link secondary" aria-label="Request CV from Yavuz Tursin">Request CV</a>
+      </div>
+
+      <div class="contact-form-wrap rv d2">
+        <h3 class="contact-form-title">Send a message directly.</h3>
+        <p class="contact-form-note">This opens your email client with the message filled in — nothing is sent from this page.</p>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" required autocomplete="name" aria-describedby="cf-name-error">
+            <span class="form-error" id="cf-name-error" role="alert"></span>
+          </div>
+          <div class="form-row">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" required autocomplete="email" aria-describedby="cf-email-error">
+            <span class="form-error" id="cf-email-error" role="alert"></span>
+          </div>
+          <div class="form-row">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required aria-describedby="cf-message-error"></textarea>
+            <span class="form-error" id="cf-message-error" role="alert"></span>
+          </div>
+          <button type="submit" class="button-link">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
 
       <ul class="contact-links rv d2">
@@ -965,7 +1105,13 @@
   <footer class="site-footer">
     <div class="shell site-footer-inner">
       <span>© 2026 Yavuz Tursin · Bremen</span>
-      <a href="https://linkedin.com/in/yavuztursin" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="https://linkedin.com/in/yavuztursin" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </nav>
     </div>
   </footer>
 
@@ -995,8 +1141,53 @@
         if (!target) return;
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (history.pushState) history.pushState(null, '', id);
       });
     });
+
+    (function () {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      var status = form.querySelector('.form-status');
+      var fields = {
+        name: { el: document.getElementById('cf-name'), error: document.getElementById('cf-name-error'), message: 'Please enter your name.' },
+        email: { el: document.getElementById('cf-email'), error: document.getElementById('cf-email-error'), message: 'Please enter a valid email address.' },
+        message: { el: document.getElementById('cf-message'), error: document.getElementById('cf-message-error'), message: 'Please enter a message.' }
+      };
+
+      function validateField(field) {
+        var valid = field.el.checkValidity() && field.el.value.trim().length > 0;
+        field.el.setAttribute('aria-invalid', valid ? 'false' : 'true');
+        field.error.textContent = valid ? '' : field.message;
+        return valid;
+      }
+
+      Object.keys(fields).forEach(function (key) {
+        fields[key].el.addEventListener('blur', function () { validateField(fields[key]); });
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var allValid = true;
+        Object.keys(fields).forEach(function (key) {
+          if (!validateField(fields[key])) allValid = false;
+        });
+        if (!allValid) {
+          status.textContent = 'Please fix the highlighted fields.';
+          return;
+        }
+        var name = fields.name.el.value.trim();
+        var email = fields.email.el.value.trim();
+        var message = fields.message.el.value.trim();
+        var subject = 'Message from ' + name + ' via yavuztursin.com';
+        var body = message + '\n\n— ' + name + ' (' + email + ')';
+        var mailto = 'mailto:yavuztursin@gmail.com'
+          + '?subject=' + encodeURIComponent(subject)
+          + '&body=' + encodeURIComponent(body);
+        status.textContent = 'Opening your email client…';
+        window.location.href = mailto;
+      });
+    })();
   </script>
 </body>
 </html>
