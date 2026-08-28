@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yavuztursin.com/sitemap.xml
+Sitemap: https://www.yavuztursin.com/sitemap.xml
