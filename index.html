@@ -159,12 +159,6 @@
       margin-bottom: clamp(28px, 4vw, 40px);
     }
     .hero-name em { font-style: italic; font-weight: 400; }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.65fr) minmax(250px, 0.95fr);
-      gap: clamp(28px, 5vw, 72px);
-      align-items: end;
-    }
     .hero-tagline {
       font-family: var(--serif);
       font-size: clamp(28px, 4vw, 48px);
@@ -181,20 +175,6 @@
       color: var(--ink-soft);
       max-width: 58ch;
     }
-    .hero-credentials {
-      padding: 18px 20px;
-      background: var(--paper-soft);
-      border: 1px solid var(--rule);
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      line-height: 1.95;
-    }
-    .hero-credentials strong { color: var(--ink); font-weight: 500; }
 
     section {
       padding: clamp(64px, 8vw, 108px) 0 clamp(24px, 3vw, 36px);
@@ -228,8 +208,8 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.85fr);
-      gap: clamp(24px, 4vw, 48px);
+      grid-template-columns: minmax(0, 2fr) minmax(200px, 0.7fr);
+      gap: clamp(24px, 4vw, 56px);
       align-items: start;
     }
     .about-copy {
@@ -245,10 +225,13 @@
     .about-p:last-child { margin-bottom: 0; }
     .about-photo-wrap {
       margin: 0;
+      justify-self: end;
+      width: 100%;
+      max-width: 290px;
       background: var(--paper-soft);
       border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      padding: 14px;
+      border-radius: 16px;
+      padding: 10px;
       box-shadow: var(--shadow);
     }
     .about-photo {
@@ -259,14 +242,6 @@
       object-position: center 25%;
       border-radius: 14px;
       background: #ddd5c7;
-    }
-    .about-photo-caption {
-      margin-top: 10px;
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
     }
 
     .writing-grid {
@@ -597,7 +572,6 @@
     .hero-name { animation: rise .75s cubic-bezier(.2,.8,.2,1) .08s both; }
     .hero-tagline { animation: rise .65s cubic-bezier(.2,.8,.2,1) .2s both; }
     .hero-summary { animation: rise .65s cubic-bezier(.2,.8,.2,1) .28s both; }
-    .hero-credentials { animation: rise .65s cubic-bezier(.2,.8,.2,1) .38s both; }
     .rv { opacity: 0; transform: translateY(12px); transition: opacity .55s ease, transform .55s cubic-bezier(.16,1,.3,1); }
     .rv.on { opacity: 1; transform: translateY(0); }
     .rv.d1 { transition-delay: .05s; }
@@ -609,14 +583,13 @@
     }
 
     @media (max-width: 920px) {
-      .hero-grid,
       .about-grid,
       .writing-grid,
       .gallery-grid {
         grid-template-columns: 1fr;
       }
       .hero-tagline { max-width: 16ch; }
-      .about-photo-wrap { max-width: 420px; }
+      .about-photo-wrap { justify-self: start; max-width: 320px; }
     }
 
     @media (max-width: 760px) {
@@ -661,9 +634,6 @@
       }
       .hero-summary {
         font-size: 15px;
-      }
-      .hero-credentials {
-        padding: 16px 18px;
       }
       .about-p,
       .contact-intro {
@@ -799,17 +769,8 @@
   <main id="main">
     <section id="top" class="hero shell" aria-labelledby="hero-name">
       <h1 class="hero-name" id="hero-name">Yavuz <em>Tursin</em></h1>
-      <div class="hero-grid">
-        <div>
-          <p class="hero-tagline">Commercial shipping and chartering.</p>
-          <p class="hero-summary">I use this site to share personal reflections and selected maritime photos.</p>
-        </div>
-        <p class="hero-credentials">
-          Chartering · <strong>tanker owner &amp; operator</strong><br>
-          B.Sc. Shipping &amp; Chartering · <strong>Hochschule Bremen</strong><br>
-          Bremen
-        </p>
-      </div>
+      <p class="hero-tagline">Commercial shipping and chartering.</p>
+      <p class="hero-summary">I use this site to share personal reflections and selected maritime photos.</p>
     </section>
 
     <section id="about" class="shell" aria-labelledby="about-title">
@@ -822,7 +783,6 @@
         </div>
         <figure class="about-photo-wrap">
           <img class="about-photo" src="photo.jpg" alt="Portrait of Yavuz Tursin" width="1024" height="1536" decoding="async">
-          <figcaption class="about-photo-caption">Yavuz Tursin · Bremen</figcaption>
         </figure>
       </div>
     </section>
