@@ -500,65 +500,25 @@
       letter-spacing: -0.01em;
       margin-bottom: 24px;
     }
-    .contact-actions {
+    .contact-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-    .button-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 13px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--ink);
-      background: var(--ink);
-      color: var(--paper);
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: transform .18s ease, background-color .18s ease, color .18s ease;
-    }
-    .button-link:hover { transform: translateY(-1px); }
-    .button-link.secondary {
-      background: transparent;
-      color: var(--ink);
-      border-color: var(--rule-strong);
-    }
-    .button-link.secondary:hover {
-      background: rgba(255,255,255,0.55);
-    }
-    .contact-links {
+      gap: 12px 28px;
       list-style: none;
-      max-width: 700px;
-      border-top: 1px solid var(--rule);
     }
-    .contact-links li {
-      display: grid;
-      grid-template-columns: 140px minmax(0, 1fr) auto;
-      gap: 16px;
-      align-items: baseline;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--rule);
+    .contact-link {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--ink);
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color .18s ease, border-color .18s ease;
     }
-    .contact-links .k {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-    }
-    .contact-links .v { color: var(--ink); }
-    .contact-links a.v:hover { color: var(--accent); }
-    .contact-links .a {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
+    .contact-link:hover,
+    .contact-link:focus-visible {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
     }
 
 
@@ -676,20 +636,8 @@
       .direction-num {
         margin-bottom: 2px;
       }
-      .contact-links li {
-        grid-template-columns: 1fr auto;
-        row-gap: 4px;
-      }
-      .contact-links .k {
-        grid-column: 1 / -1;
-      }
-      .contact-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .button-link {
-        justify-content: center;
-        width: 100%;
+      .contact-links {
+        gap: 14px 22px;
       }
     }
 
@@ -899,16 +847,10 @@
     <section id="contact" class="shell" aria-labelledby="contact-title">
       <p class="section-label rv">Contact</p>
       <h2 class="section-title rv d1" id="contact-title">Get in touch.</h2>
-      <div class="contact-actions rv d2">
-        <a href="mailto:yavuztursin@gmail.com?subject=Hello%20from%20yavuztursin.com" class="button-link" aria-label="Email Yavuz Tursin">Email</a>
-      </div>
 
       <ul class="contact-links rv d2">
-        <li>
-          <span class="k">LinkedIn</span>
-          <a class="v" href="https://linkedin.com/in/yavuztursin" target="_blank" rel="noopener">linkedin.com/in/yavuztursin</a>
-          <span class="a">↗</span>
-        </li>
+        <li><a class="contact-link" href="mailto:yavuztursin@gmail.com?subject=Hello%20from%20yavuztursin.com" aria-label="Email Yavuz Tursin">Email</a></li>
+        <li><a class="contact-link" href="https://linkedin.com/in/yavuztursin" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
     </section>
   </main>
