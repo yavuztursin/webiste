@@ -436,7 +436,6 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: clamp(14px, 2vw, 20px);
-      align-items: start;
     }
     .gallery-card {
       margin: 0;
@@ -470,6 +469,9 @@
       line-height: 1.25;
       letter-spacing: -0.012em;
       margin-bottom: 4px;
+    }
+    .gallery-title:last-child {
+      margin-bottom: 0;
     }
     .gallery-note {
       color: var(--ink-soft);
@@ -857,35 +859,31 @@
           <video class="gallery-image gallery-video" src="images/gallery/port-of-rotterdam.mp4" poster="images/gallery/port-of-rotterdam-poster.jpg" width="960" height="540" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback tabindex="0" role="button" aria-pressed="false" aria-label="Container terminals in the Port of Rotterdam, silent clip"></video>
           <figcaption class="gallery-copy">
             <h3 class="gallery-title">Port of Rotterdam</h3>
-            <p class="gallery-note">Container terminals, seen from the water.</p>
           </figcaption>
         </figure>
         <figure class="gallery-card">
           <img class="gallery-image" src="images/gallery/uebersee-museum-bremen.jpg" alt="Ship model in the “Erdöl in Bremen” exhibit at the Übersee-Museum Bremen" width="1200" height="828" loading="lazy" decoding="async">
           <figcaption class="gallery-copy">
-            <h3 class="gallery-title">Ship model — Übersee-Museum Bremen</h3>
-            <p class="gallery-note">Photographed in the exhibit “Erdöl in Bremen”.</p>
+            <h3 class="gallery-title">Glückauf — Übersee-Museum Bremen</h3>
+            <p class="gallery-note">The exhibit traces Bremen’s role in the early petroleum trade and the 1886 tanker Glückauf.</p>
           </figcaption>
         </figure>
         <figure class="gallery-card">
           <video class="gallery-image gallery-video" style="object-position: 70% 50%" src="images/gallery/hamburg-elbe-container-vessel.mp4" poster="images/gallery/hamburg-elbe-container-vessel-poster.jpg" width="848" height="478" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback tabindex="0" role="button" aria-pressed="false" aria-label="Hapag-Lloyd container vessel passing on the Elbe in Hamburg, silent clip"></video>
           <figcaption class="gallery-copy">
-            <h3 class="gallery-title">Container vessel on the Elbe</h3>
-            <p class="gallery-note">Hamburg, 2026</p>
+            <h3 class="gallery-title">Container vessel on the Elbe — Hamburg</h3>
           </figcaption>
         </figure>
         <figure class="gallery-card">
           <img class="gallery-image" src="images/gallery/rotterdam-vessel.jpg" alt="Vessel artwork photographed at the Maritime Museum Rotterdam" width="1200" height="900" loading="lazy" decoding="async">
           <figcaption class="gallery-copy">
             <h3 class="gallery-title">Vessel artwork — Maritime Museum Rotterdam</h3>
-            <p class="gallery-note">Photographed at the Maritime Museum Rotterdam.</p>
           </figcaption>
         </figure>
         <figure class="gallery-card">
           <video class="gallery-image gallery-video" style="object-position: 50% 22%" src="images/gallery/bremerhaven-tugboat.mp4" poster="images/gallery/bremerhaven-tugboat-poster.jpg" width="400" height="720" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback tabindex="0" role="button" aria-pressed="false" aria-label="Container terminal cranes in Bremerhaven, seen from a tugboat, silent clip"></video>
           <figcaption class="gallery-copy">
             <h3 class="gallery-title">From a tugboat — Bremerhaven</h3>
-            <p class="gallery-note">Filmed from the wheelhouse.</p>
           </figcaption>
         </figure>
       </div>
