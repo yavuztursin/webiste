@@ -292,27 +292,7 @@
       box-shadow: 0 12px 28px rgba(23,20,17,0.08);
       border-color: #b9af99;
     }
-    .writing-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .writing-status::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      opacity: 0.35;
-    }
-    .writing-status.planned { color: var(--ink-muted); }
-    .writing-status.planned::before { background: var(--ink-muted); }
+    a.writing-card:focus-visible { border-radius: 14px; }
     .writing-card-title {
       font-family: var(--serif);
       font-size: clamp(22px, 2.2vw, 30px);
@@ -521,6 +501,7 @@
       border-color: var(--accent);
       background: var(--accent-soft);
     }
+    .contact-link:focus-visible { border-radius: 999px; }
 
 
     .site-footer {
@@ -560,6 +541,7 @@
     .rv.d2 { transition-delay: .14s; }
 
     @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .rv { opacity: 1; transform: none; }
     }
@@ -757,8 +739,7 @@
 
       <div class="writing-list rv d2">
         <a href="posts/working-student-tanker-chartering.html" class="writing-card" aria-label="Read reflection on six months as a working student in tanker chartering">
-          <span class="writing-status">Published</span>
-          <h4 class="writing-card-title">Working student in tanker chartering</h4>
+          <h3 class="writing-card-title">Working student in tanker chartering</h3>
           <p class="writing-card-copy"><span data-nosnippet>Six months, two days a week, inside a tanker chartering department &mdash; what I worked on, what I got wrong, and what practice taught me that university could not.</span></p>
           <div class="writing-meta">
             <span>September 2026</span>
@@ -766,8 +747,7 @@
         </a>
 
         <a href="posts/first-month-chartering.html" class="writing-card" aria-label="Read reflection on first month in chartering">
-          <span class="writing-status">Published</span>
-          <h4 class="writing-card-title">First month in chartering &mdash; what stood out to me early on</h4>
+          <h3 class="writing-card-title">First month in chartering &mdash; what stood out to me early on</h3>
           <p class="writing-card-copy"><span data-nosnippet>A short reflection on the first month at a tanker shipping company: what the desk feels like in real life, what starts to matter quickly, and what looks different once you are actually inside it.</span></p>
           <div class="writing-meta">
             <span>April 2026</span>
@@ -888,7 +868,8 @@
         var target = document.querySelector(id);
         if (!target) return;
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var instant = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({ behavior: instant ? 'auto' : 'smooth', block: 'start' });
         if (history.pushState) history.pushState(null, '', id);
       });
     });

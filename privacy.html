@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy · Yavuz Tursin</title>
+  <title>Privacy Policy — Yavuz Tursin</title>
   <meta name="description" content="Privacy policy for yavuztursin.com — what data this site collects and how the contact form and any analytics work.">
   <meta name="theme-color" content="#f3efe6">
   <link rel="canonical" href="https://www.yavuztursin.com/privacy.html">
@@ -28,6 +28,24 @@
     a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
     a:focus-visible { outline: 2px solid #23425f; outline-offset: 3px; border-radius: 2px; }
     ::selection { background: #171411; color: #f3efe6; }
+
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      left: 12px;
+      z-index: 50;
+      background: #171411;
+      color: #f3efe6;
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      transition: top .15s ease;
+    }
+    .skip-link:focus { top: 12px; }
 
     :root {
       --paper: #f3efe6;
@@ -147,9 +165,15 @@
       .article { padding-top: 42px; }
       .article-body { border-radius: 14px; padding: 20px; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .skip-link { transition: none; }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="topbar">
     <div class="shell topbar-inner">
       <a href="index.html" class="brand">Yavuz Tursin</a>
@@ -157,7 +181,7 @@
     </div>
   </header>
 
-  <main class="article shell">
+  <main class="article shell" id="main">
     <p class="article-kicker">Legal</p>
     <h1 class="article-title">Privacy Policy</h1>
     <p class="article-intro">This site is a static personal page. It collects very little, and this page explains exactly what.</p>
@@ -166,7 +190,7 @@
       <h2>What this site collects</h2>
       <p>yavuztursin.com has no server-side backend and no database. It does not create accounts, does not use tracking cookies, and does not store anything you submit.</p>
 
-      <h2>Contact</h2>
+      <h2>Contact links</h2>
       <p>There is no form on this site. The contact links are plain <a href="mailto:yavuztursin@gmail.com">mailto</a> links that open your own email client. Nothing is submitted to or stored by this site.</p>
 
       <h2>Analytics</h2>
@@ -175,11 +199,11 @@
       <h2>Third-party links</h2>
       <p>This site links to external services, including LinkedIn. Those sites have their own privacy policies, which this site has no control over.</p>
 
-      <h2>Contact</h2>
+      <h2>Questions</h2>
       <p>Questions about this policy can be sent to <a href="mailto:yavuztursin@gmail.com?subject=Privacy%20question">yavuztursin@gmail.com</a>.</p>
 
       <div class="article-footer">
-        <span>Yavuz Tursin · Bremen</span>
+        <span>Yavuz Tursin</span>
         <a href="index.html">Back to homepage →</a>
       </div>
     </div>
