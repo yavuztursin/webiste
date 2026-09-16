@@ -970,11 +970,13 @@
       var videos = Array.prototype.slice.call(document.querySelectorAll('.gallery-video'));
       if (!videos.length) return;
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-      var HOLD_MS = 120, SLOP = 10;
-      var press = null;
+      var SLOP = 10;
+      var press = null, touching = false;
 
-      function play(v) {
+      function play(v, once) {
         videos.forEach(function (o) { if (o !== v) stop(o); });
+        v.loop = !once;
+        v.touchPlayed = !!once;
         var p = v.play();
         if (p && p.catch) p.catch(function () {});
         v.setAttribute('aria-pressed', 'true');
@@ -983,18 +985,20 @@
         if (!v.paused) v.pause();
         if (v.currentTime) v.currentTime = 0;
         v.setAttribute('aria-pressed', 'false');
+        if (v.touchPlayed) {
+          v.touchPlayed = false;
+          v.load(); // back to the poster rather than a paused frame
+        }
       }
       function toggle(v) { v.paused ? play(v) : stop(v); }
 
-      // Touch/pen: press and hold to preview, release to return to the poster.
-      function release(e) {
-        if (!press || (e && e.pointerId !== press.id)) return;
-        var v = press.v, started = press.started;
-        clearTimeout(press.timer);
+      // Touch/pen: touching a tile plays it once to the end. If the touch
+      // turns into a scroll instead, that playback is cancelled.
+      function cancelPress(e) {
+        if (!press || e.pointerId !== press.id) return;
+        var v = press.v;
         press = null;
-        if (!started) return;
         stop(v);
-        v.load(); // back to the poster rather than a paused frame
       }
 
       videos.forEach(function (v) {
@@ -1002,28 +1006,28 @@
           if (e.pointerType === 'mouse' && !reduce.matches) play(v);
         });
         v.addEventListener('pointerleave', function (e) {
-          if (e.pointerType === 'mouse') { if (!reduce.matches) stop(v); return; }
-          release(e);
+          if (e.pointerType === 'mouse' && !reduce.matches) stop(v);
         });
         v.addEventListener('pointerdown', function (e) {
           if (e.pointerType === 'mouse' || !e.isPrimary) return;
-          release();
-          var s = { v: v, id: e.pointerId, x: e.clientX, y: e.clientY, started: false };
-          s.timer = setTimeout(function () {
-            if (press !== s) return;
-            s.started = true;
-            play(v);
-          }, HOLD_MS);
-          press = s;
+          touching = true;
+          press = null;
+          if (!v.paused) return;
+          play(v, true);
+          press = { v: v, id: e.pointerId, x: e.clientX, y: e.clientY };
         });
         v.addEventListener('pointermove', function (e) {
-          if (!press || press.started || e.pointerId !== press.id) return;
-          if (Math.abs(e.clientX - press.x) > SLOP || Math.abs(e.clientY - press.y) > SLOP) release(e);
+          if (!press || e.pointerId !== press.id) return;
+          if (Math.abs(e.clientX - press.x) > SLOP || Math.abs(e.clientY - press.y) > SLOP) cancelPress(e);
         });
-        v.addEventListener('pointerup', release);
-        v.addEventListener('pointercancel', release);
+        v.addEventListener('pointercancel', function (e) { touching = false; cancelPress(e); });
+        v.addEventListener('pointerup', function (e) {
+          touching = false;
+          if (press && e.pointerId === press.id) press = null;
+        });
+        v.addEventListener('ended', function () { stop(v); });
         v.addEventListener('contextmenu', function (e) {
-          if (press) e.preventDefault();
+          if (touching) e.preventDefault();
         });
         v.addEventListener('keydown', function (e) {
           if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(v); }
@@ -1031,7 +1035,7 @@
       });
 
       document.addEventListener('visibilitychange', function () {
-        if (document.hidden) release();
+        if (document.hidden) videos.forEach(stop);
       });
 
       if ('IntersectionObserver' in window) {
